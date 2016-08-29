@@ -1,0 +1,13 @@
+= simple_form_for(@game) do |f|
+  = f.error_notification
+
+  .form-inputs
+    .large-6.medium-6.small-12.columns= f.input :starting, minute_step: 30
+    .large-6.medium-6.small-12.columns= f.input :ending, minute_step: 30
+    .large-3.medium-3.small-6.columns= f.association :location
+    .large-3.medium-3.small-6.columns= f.association :host, collection: User.host
+    .large-6.medium-12.small-12.columns= f.input :review
+    .large-6.medium-12.small-12.columns= f.input :facebook_event_url
+
+  .form-actions
+    = f.button :submit

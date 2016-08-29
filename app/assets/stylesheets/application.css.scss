@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+.datetime {
+  width: auto;
+  select {
+    padding-right: 15px;
+    spacing: 0px;
+  }
+}

@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @location.name
+%p
+  %b Street address:
+  = @location.street_address
+%p
+  %b City:
+  = @location.city
+%p
+  %b State:
+  = @location.state
+%p
+  %b Zip:
+  = @location.zip
+
+= link_to 'Edit', edit_location_path(@location)
+\|
+= link_to 'Back', locations_path
