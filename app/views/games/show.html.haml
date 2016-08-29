@@ -18,11 +18,11 @@
   .lower-left= image_tag('lower.png')
 
 #right-side
-  / .upper-right
+  .upper-right
   .content
     .main-courses
     .activities
       %ul= render @game.activities.order(:id)
-  / .lower-right
+  .lower-right
 
 .extra
