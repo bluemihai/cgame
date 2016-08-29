@@ -75,7 +75,7 @@ li.activity {
 .upper-right {
   width: 100%;
   height: 40px;
-  background-image: url('decoration-c-tiny.png');
+  background-image: image-url('decoration-c-tiny.png');
   background-size: auto;
   background-color: white;
 }
@@ -83,14 +83,14 @@ li.activity {
 .lower-right {
   width: 100%;
   height: 40px;
-  background-image: url('decoration-c-tiny.png');
+  background-image: image-url('decoration-c-tiny.png');
   background-size: auto;
   background-color: white;
 }
 
 .main-courses {
   margin: auto;
-  background-image: url('main-courses.png');
+  background-image: image-url('main-courses.png');
   background-position: center;
   background-repeat: no-repeat;
   height: 100px;
