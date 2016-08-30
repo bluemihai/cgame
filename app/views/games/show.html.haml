@@ -19,10 +19,9 @@
 
 #right-side
   .upper-right
-  .content
+  #right-side-content
     .main-courses
-    .activities
-      %ul= render @game.activities.order(:id)
+    %ul.activities= render @game.activities.order(:id)
   .lower-right
 
 .extra
