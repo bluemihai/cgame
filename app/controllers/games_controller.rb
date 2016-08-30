@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
+  before_action :host_or_admin_only, except: [:index, :show]
 
   def index
     @games = Game.all
@@ -50,6 +51,12 @@ class GamesController < ApplicationController
   end
 
   private
+    def host_or_admin_only
+      unless current_user && (current_user.host? || current_user.admin?)
+        redirect_to :back, :alert => "Action only permitted for hosts.  Please sign in or join us and become one!"
+      end
+    end
+
     def set_game
       @game = Game.find(params[:id])
     end

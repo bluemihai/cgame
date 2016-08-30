@@ -18,7 +18,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'binding_of_caller'
 gem 'foundation-rails', '~> 5.5'
 gem 'haml-rails'
 gem 'high_voltage', :github=>"thoughtbot/high_voltage"
@@ -29,6 +28,8 @@ gem 'simple_form'
 gem 'thin'
 group :development do
   gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'dotenv-rails'
   gem 'foreman'
   gem 'guard-bundler'
   gem 'guard-rails'

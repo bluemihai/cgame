@@ -33,16 +33,16 @@ class UsersController < ApplicationController
   private
 
   def admin_only
-    unless current_user.admin?
+    unless current_user && current_user.admin?
       redirect_to :back, :alert => "Access denied."
     end
   end
 
   def secure_params
     if @user == current_user
-      params.require(:user).permit(:email)
+      params.require(:user).permit(:email, :prefs)
     elsif current_user.admin?
-      params.require(:user).permit(:role)
+      params.require(:user).permit(:email, :prefs, :role)
     end
   end
 
