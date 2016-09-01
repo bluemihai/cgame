@@ -1,0 +1,10 @@
+= game.starting.strftime('%b-%d, %H:%M')
+at
+= link_to game.location.try(:name), game.location
+= game.host.try(:name)
+= link_to 'RSVP on Facebook', game.facebook_event_url
+= game.review
+- if current_user && current_user.admin?
+  = link_to 'Edit', edit_game_path(game)
+  = link_to 'Destroy', game, :method => :delete, :data => { :confirm => 'Are you sure?' }
+%br

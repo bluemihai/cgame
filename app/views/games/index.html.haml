@@ -1,31 +1,3 @@
-%h1 Listing games
+%h1 Upcoming C-Games
 
-%table
-  %thead
-    %tr
-      %th Starting
-      %th Ending
-      %th Location
-      %th Host
-      %th Facebook event url
-      %th Review
-      %th
-      %th
-      %th
-
-  %tbody
-    - @games.each do |game|
-      %tr
-        %td= game.starting
-        %td= game.ending
-        %td= game.location_id
-        %td= game.host_id
-        %td= game.facebook_event_url
-        %td= game.review
-        %td= link_to 'Show', game
-        %td= link_to 'Edit', edit_game_path(game)
-        %td= link_to 'Destroy', game, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Game', new_game_path
+= render @games
