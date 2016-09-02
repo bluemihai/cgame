@@ -1,3 +1,15 @@
 %h1 Upcoming C-Games
 
-= render @games
+- if host_or_admin?
+  = render @games
+
+- else
+  %p Thank you for your interest!
+
+  %p
+    C-Games are currently private, invite-only events.
+    %br
+    Please request an invite from one of our hosts:
+    %br
+    = User.host.map {|host| mail_to(host.email, host.name) }.join(', ').html_safe
+.padding
