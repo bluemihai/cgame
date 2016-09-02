@@ -5,8 +5,7 @@
 
 %p
   = image_tag(@activity.image_url) if @activity.image_url
-/ %h4= @activity.description.gsub(/\n/, '<br>').html_safe, activity
-%h4.activity-description= link_to @activity.haiku.gsub(/\n/, '<br>').html_safe, @activity
+%h4.activity-description= link_to simpler_format(@activity.haiku), @activity
 
 %hr
 %h4.activity-description= link_to simpler_format(@activity.description), @activity
