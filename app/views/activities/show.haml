@@ -1,15 +1,14 @@
-%h2
+%h1
   %span= @activity.name
   %span.admin-only= link_to '(Edit)', edit_activity_path(@activity)
 
 
 %p
   = image_tag(@activity.image_url) if @activity.image_url
-%h4.activity-description= simpler_format(@activity.haiku)
+%h3.activity-description= simpler_format(@activity.haiku)
 
 %hr
-%h4.activity-description= simpler_format(@activity.description)
-
+.activity-description= simpler_format(@activity.description)
 /   %b Wild card weight:
 /   = @activity.wild_card_weight
 / %p
