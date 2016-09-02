@@ -12,12 +12,13 @@
   %p
   %p
 
-.large-6.medium-12.small-12.columns
-  %h4 Description
-  .activity-description= simpler_format(@activity.description)
-  /   %b Wild card weight:
-  /   = @activity.wild_card_weight
-  / %p
-  /   %b Image url:
-  /   = @activity.image_url
+- unless @activity.description.blank?
+  .large-6.medium-12.small-12.columns
+    %h4 Description
+    .activity-description= simpler_format(@activity.description)
+    /   %b Wild card weight:
+    /   = @activity.wild_card_weight
+    / %p
+    /   %b Image url:
+    /   = @activity.image_url
 .padding

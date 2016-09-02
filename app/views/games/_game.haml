@@ -1,14 +1,16 @@
 .large-3.medium-3.small-6.columns
   = link_to default_time(game.starting), game
 .large-3.medium-3.small-6.columns
-  at
+  at&nbsp;
   = link_to game.location.try(:name), game.location
 .large-2.medium-2.small-46.columns
-  Host:
+  Host:&nbsp;
   = game.host.try(:first_last_initial)
 .large-4.medium-4.small-6.columns
   %span= link_to 'RSVP', game.facebook_event_url
   - if host_or_admin?
+    \—
     %span.admin-only= link_to 'Edit', edit_game_path(game)
+    \—
     %span.admin-only= link_to 'Destroy', game, :method => :delete, :data => { :confirm => 'Are you sure?' }
 %hr
