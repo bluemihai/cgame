@@ -5,7 +5,7 @@
     .large-6.medium-6.small-12.columns= f.input :starting, minute_step: 30
     .large-6.medium-6.small-12.columns= f.input :ending, minute_step: 30
     .large-3.medium-3.small-6.columns= f.association :location
-    .large-3.medium-3.small-6.columns= f.association :host, collection: User.host
+    .large-3.medium-3.small-6.columns= f.association :host, collection: User.host_or_admin
     .large-6.medium-6.small-6.columns= f.association :activities, as: :check_boxes
     %hr
     .large-6.medium-12.small-12.columns= f.input :review

@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   enum role: [:player, :host, :admin]
   after_initialize :set_default_role, :if => :new_record?
 
+  scope :host_or_admin, -> { where('role > 0') }
+
   def first_last_initial
     names = name.split(' ')
     "#{names[0]} #{names[1][0]}."

@@ -1,6 +1,6 @@
 module ApplicationHelper
   def show_bool(value)
-    value ? image_tag('checkmark_png') : image_tag('warning.png')
+    value ? image_tag('checkmark.png') : image_tag('warning.png')
   end
 
   def simpler_format(txt)
