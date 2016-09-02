@@ -9,6 +9,7 @@
         %th.text-center Main?
         %th.text-center Active?
         %th Haiku
+        %th.text-center Added
         %th
         %th
 
@@ -19,6 +20,7 @@
           %td.text-center= show_bool(activity.main?)
           %td.text-center= show_bool(activity.active?)
           %td= link_to simpler_format(activity.haiku), activity
+          %td.text-center= activity.created_at.strftime('%a, %b-%d')
           %td.admin-only= link_to 'Edit', edit_activity_path(activity)
           %td.admin-only= link_to 'Destroy', activity, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
@@ -31,6 +33,7 @@
           %th.text-center Weight
           %th.text-center Active?
           %th Haiku
+          %th Added
           %th
           %th
 
@@ -45,6 +48,7 @@
             %td.text-center= show_bool(activity.active?)
             %td
               = link_to simpler_format(activity.haiku), activity if admin?
+            %td.text-center= activity.created_at.strftime('%a, %b-%d')
             %td.admin-only= link_to 'Edit', edit_activity_path(activity)
             %td.admin-only= link_to 'Destroy', activity, :method => :delete, :data => { :confirm => 'Are you sure?' }
 

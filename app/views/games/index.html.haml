@@ -1,7 +1,8 @@
-%h1 Upcoming C-Games
-
 - if host_or_admin?
+  %h2 Upcoming C-Games
   = render @games
+  %h2 Past C-Games
+  = render @past
 
 - else
   %p Thank you for your interest!
