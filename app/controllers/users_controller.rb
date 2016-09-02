@@ -51,7 +51,7 @@ class UsersController < ApplicationController
   private
 
   def admin_only
-    unless current_user && current_user.admin?
+    unless host_or_admin?
       redirect_back(fallback_location: root_path, :alert => "Access denied.")
     end
   end
