@@ -1,17 +1,23 @@
-%h1
-  %span= @activity.name
-  %span.admin-only= link_to '(Edit)', edit_activity_path(@activity)
+.large-6.medium-12.small-12.columns
+  %h2= @activity.name
 
+  %p
+    = image_tag(@activity.image_url) if @activity.image_url
+  %h3.activity-description= simpler_format(@activity.haiku)
+  %p
+  %p
+  - if host_or_admin?
+    .admin-only
+      = link_to '(Edit)', edit_activity_path(@activity), class: 'button-xs'
+  %p
+  %p
 
-%p
-  = image_tag(@activity.image_url) if @activity.image_url
-%h3.activity-description= simpler_format(@activity.haiku)
-
-%hr
-.activity-description= simpler_format(@activity.description)
-/   %b Wild card weight:
-/   = @activity.wild_card_weight
-/ %p
-/   %b Image url:
-/   = @activity.image_url
+.large-6.medium-12.small-12.columns
+  %h4 Description
+  .activity-description= simpler_format(@activity.description)
+  /   %b Wild card weight:
+  /   = @activity.wild_card_weight
+  / %p
+  /   %b Image url:
+  /   = @activity.image_url
 .padding

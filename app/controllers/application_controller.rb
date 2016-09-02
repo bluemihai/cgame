@@ -7,10 +7,15 @@ class ApplicationController < ActionController::Base
   helper_method :user_signed_in?
   helper_method :correct_user?
   helper_method :host_or_admin?
+  helper_method :admin?
 
   private
     def host_or_admin?
       current_user && (current_user.host? || current_user.admin?)
+    end
+
+    def admin?
+      current_user && current_user.admin?
     end
 
     def current_user
