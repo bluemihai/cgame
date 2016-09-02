@@ -1,6 +1,6 @@
 %li= link_to 'C-Games', games_path
 - if host_or_admin?
-  %li= link_to 'Create Activity', new_activity_path
   %li= link_to 'Host C-Game', new_game_path
-  %li= link_to 'Get Random WC', wildcard_path
+  %li= link_to 'Create Activity', new_activity_path
+  %li= link_to 'Get Random WC', wildcard_path, data: { confirm: 'Are you sure?  Promise this is in service of an actual C-Game and you\'re not just peaking?' }
 = render '/layouts/nav_links_for_auth'

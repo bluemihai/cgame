@@ -1,9 +1,6 @@
+%h2 Upcoming C-Games
 - if host_or_admin?
-  %h2 Upcoming C-Games
   = render @games
-  %h2 Past C-Games
-  = render @past
-
 - else
   %p Thank you for your interest!
 
@@ -13,4 +10,9 @@
     Please request an invite from one of our hosts:
     %br
     = User.host_or_admin.map {|host| mail_to(host.email, host.name) }.join(', ').html_safe
+
+%h2 Past C-Games
+- @past.each do |game|
+  = render 'games/past', game: game
+
 .padding

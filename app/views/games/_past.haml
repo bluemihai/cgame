@@ -1,0 +1,21 @@
+.past-game-box
+  .table-cell
+    - if host_or_admin?
+      %span.admin-only= link_to 'Edit', edit_game_path(game)
+      \—
+      %span.admin-only= link_to 'Destroy', game, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %br
+    = link_to game.starting.strftime('%a, %b-%d'), game
+    %br
+    Host:&nbsp;
+    %b= link_to game.host.try(:first_last_initial), game
+    %br
+    Attendees:&nbsp;
+    %b= game.attendees.size rescue 'N/A'
+    %br
+    Recap:&nbsp;
+    = link_to show_bool(!game.review.blank?), game
+  .table-cell
+    - game.activities.each do |a|
+      =link_to a.name, a
+      %br
