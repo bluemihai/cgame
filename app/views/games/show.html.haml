@@ -1,4 +1,7 @@
-%p.admin-only= render @game.users.order(:name) if host_or_admin?
+- if host_or_admin?
+  %p.admin-only
+    = @game.users.order(:name).map{ |user| link_to user.name, user }.join(', ').html_safe
+      
 - if @game.review.blank?
   .row
     .large-4.medium-4.small-12.columns
