@@ -3,6 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.activity {
+}
+
 li.activity {
   list-style-type: none;
   padding: 5px 0px;
@@ -30,6 +33,11 @@ li.activity {
 
 .activity-description {
   display: table-cell;
+}
+
+.edit-button {
+  float: right;
+  padding: 15px 10px 0 10px;
 }
 
 #left-side {

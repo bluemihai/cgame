@@ -1,3 +1,4 @@
 %li.activity
+  .admin-only.edit-button= link_to 'Edit', edit_activity_path(activity), class: 'button-xs' if host_or_admin?
   .activity-name= link_to activity.name, activity
   .activity-description= simpler_format(activity.haiku)

@@ -28,6 +28,7 @@
   .upper-right
   #right-side-content
     .main-courses
+      .admin-only.edit-button= link_to 'Edit Game', edit_game_path(@game), class: 'button-xs' if host_or_admin?
     %ul.activities= render @game.activities.order(:id)
   .lower-right
 
