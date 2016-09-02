@@ -22,7 +22,24 @@ class User < ActiveRecord::Base
       user.provider = auth['provider']
       user.uid = auth['uid']
       if auth['info']
-         user.name = auth['info']['name'] || ""
+        user.name = auth['info']['name'] || ""
+        user.email = auth['info']['email'] || ""
+      end
+    end
+  end
+
+  def self.find_or_create_with_omniauth(auth)
+    if existing = User.find_by(email: auth['info']['email'])
+      existing.update(provider: auth['provider'], uid: auth['uid'])
+      existing
+    else
+      create! do |user|
+        user.provider = auth['provider']
+        user.uid = auth['uid']
+        if auth['info']
+          user.name = auth['info']['name'] || ""
+          user.email = auth['info']['email'] || ""
+        end
       end
     end
   end

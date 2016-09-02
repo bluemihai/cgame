@@ -1,19 +1,23 @@
-.row
-  .large-4.medium-4.small-12.columns
-    C-Game awaits you
-    %br
-    At this
-    = link_to 'date', '#', title: default_time(@game.starting)
-    &nbsp;and&nbsp;
-    = link_to 'location', @game.location, title: @game.location.name
-    %br
-    = link_to 'RSVP here', @game.facebook_event_url
-  .large-8.medium-8.small-12.columns
-    = default_time(@game.starting)
-    %br
-    = link_to @game.location.full, @game.location
-    %br
-    = link_to @game.facebook_event_url, @game.facebook_event_url
+- if @game.review.blank?
+  .row
+    .large-4.medium-4.small-12.columns
+      C-Game awaits you
+      %br
+      At this
+      = link_to 'date', '#', title: default_time(@game.starting)
+      &nbsp;and&nbsp;
+      = link_to 'location', @game.location, title: @game.location.name
+      %br
+      = link_to 'RSVP here', @game.facebook_event_url
+    .large-8.medium-8.small-12.columns
+      = default_time(@game.starting)
+      %br
+      = link_to @game.location.full, @game.location
+      %br
+      = link_to @game.facebook_event_url, @game.facebook_event_url
+- else
+  %h4= "Remembering #{@game.starting.strftime('%b-%d')} at #{@game.location.name}"
+  = simpler_format(@game.review)
 
 #left-side
   .upper-left= image_tag('upper.png')
@@ -29,7 +33,7 @@
   #right-side-content
     .main-courses
       .admin-only.edit-button= link_to 'Edit Game', edit_game_path(@game), class: 'button-xs' if host_or_admin?
-    %ul.activities= render @game.activities.order(:id)
+    %ul.activities= render @game.activities.order(:name)
   .lower-right
 
 .extra
