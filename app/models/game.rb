@@ -3,9 +3,13 @@ class Game < ApplicationRecord
 
   belongs_to :location
   belongs_to :host, class_name: 'User'
+
   has_many :menu_items
   has_many :activities, through: :menu_items
-  has_many :attendees, class_name: 'User'
+
+  has_many :rsvps
+  has_many :users, through: :rsvps
+
 
   def self.upcoming
     select{ |game| game.starting > Time.zone.now }.sort_by(&:starting)

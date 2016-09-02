@@ -1,0 +1,13 @@
+%h3= link_to @user.name if @user.name
+
+- unless @user.games.empty?
+  %h4= pluralize(@user.games.size, 'C-Game')
+  - @user.games.each do |game|
+    = render 'games/past', game: game
+  %hr
+
+  .large-3.medium-3.small-6.columns= link_to 'Edit', edit_user_path(@user), class: 'button-xs'
+  .large-3.medium-3.small-6.columns= link_to 'Delete', user_path(@user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'button-xs'
+  = form_for(@user) do |f|
+    .large-3.medium-3.small-6.columns= f.select(:role, User.roles.keys.map {|role| [role.titleize,role]})
+    .large-3.medium-3.small-6.columns= f.submit 'Change Role', class: 'button-xs'

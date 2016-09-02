@@ -3,7 +3,25 @@ class UsersController < ApplicationController
   before_action :admin_only, :except => :show
 
   def index
-    @users = User.all
+    @users = User.order(:name)
+  end
+
+  def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.new(secure_params)
+
+    if @user.save
+      redirect_to users_path, notice: "User created."
+    else
+      render :new
+    end
+  end
+
+  def edit
+    @user = User.find(params[:id])    
   end
 
   def show
@@ -40,9 +58,9 @@ class UsersController < ApplicationController
 
   def secure_params
     if @user == current_user
-      params.require(:user).permit(:email, :prefs)
+      params.require(:user).permit(:name, :email, :prefs, :facebook_id)
     elsif current_user.admin?
-      params.require(:user).permit(:email, :prefs, :role)
+      params.require(:user).permit(:name, :email, :prefs, :facebook_id, :role)
     end
   end
 

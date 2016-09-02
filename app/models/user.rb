@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
   enum role: [:player, :host, :admin]
   after_initialize :set_default_role, :if => :new_record?
 
+  has_many :rsvps
+  has_many :games, through: :rsvps
+
   scope :host_or_admin, -> { where('role > 0') }
 
   def first_last_initial

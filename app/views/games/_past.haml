@@ -2,20 +2,24 @@
   .table-cell
     - if host_or_admin?
       %span.admin-only= link_to 'Edit', edit_game_path(game)
-      \—
+      &nbsp;&nbsp;—&nbsp;&nbsp;
       %span.admin-only= link_to 'Destroy', game, :method => :delete, :data => { :confirm => 'Are you sure?' }
       %br
     = link_to game.starting.strftime('%a, %b-%d'), game
     %br
-    Host:&nbsp;
-    %b= link_to game.host.try(:first_last_initial), game
+    &nbsp;&nbsp;&nbsp;at&nbsp;
+    = link_to game.location.name
     %br
-    Attendees:&nbsp;
-    %b= game.attendees.size rescue 'N/A'
+    %b= link_to game.host.try(:first_last_initial), game.host
+    &nbsp;hosted
+    %br
+    &nbsp;&nbsp;&nbsp;
+    %b= game.users.size
+    &nbsp;played
     %br
     Recap:&nbsp;
     = link_to show_bool(!game.review.blank?), game
   .table-cell
-    - game.activities.each do |a|
+    - game.activities.order(:name).each do |a|
       =link_to a.name, a
       %br

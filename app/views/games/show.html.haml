@@ -1,3 +1,4 @@
+%p.admin-only= render @game.users.order(:name) if host_or_admin?
 - if @game.review.blank?
   .row
     .large-4.medium-4.small-12.columns
@@ -16,8 +17,9 @@
       %br
       = link_to @game.facebook_event_url, @game.facebook_event_url
 - else
-  %h4= "Remembering #{@game.starting.strftime('%b-%d')} at #{@game.location.name}"
-  = simpler_format(@game.review)
+  %p
+    %h4= "Remembering #{@game.starting.strftime('%b-%d')} at #{@game.location.name}"
+    = simpler_format(@game.review)
 
 #left-side
   .upper-left= image_tag('upper.png')

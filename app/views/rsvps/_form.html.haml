@@ -1,0 +1,11 @@
+= simple_form_for(@rsvp) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :user_id
+    = f.input :game_id
+    = f.input :attended
+    = f.input :rsvp_method
+
+  .form-actions
+    = f.button :submit

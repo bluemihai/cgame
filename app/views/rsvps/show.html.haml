@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @rsvp.user_id
+%p
+  %b Game:
+  = @rsvp.game_id
+%p
+  %b Attended:
+  = @rsvp.attended
+%p
+  %b Rsvp method:
+  = @rsvp.rsvp_method
+
+= link_to 'Edit', edit_rsvp_path(@rsvp)
+\|
+= link_to 'Back', rsvps_path

@@ -1,0 +1,10 @@
+= simple_form_for(@user) do |f|
+  = f.error_notification
+
+  .form-inputs
+    .large-4.medium-6.small-6.columns= f.input :name, autofocus: true
+    .large-4.medium-6.small-6.columns= f.input :email
+    .large-4.medium-6.small-6.columns= f.input :facebook_id
+
+  .form-actions
+    = f.button :submit, 'Save'

@@ -1,0 +1,13 @@
+.container
+  .row
+    %h3
+      Users&nbsp;
+      = link_to '(Add)', new_user_path
+    .column
+      %table
+        %thead
+          %th Name
+          %th.text-center Games
+        %tbody
+          - @users.each do |user|
+            %tr= render user
