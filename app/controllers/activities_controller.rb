@@ -4,7 +4,7 @@ class ActivitiesController < ApplicationController
   def index
     @activities = host_or_admin? ? Activity.non_wild_card : Activity.main
     @activities = @activities.order(:name)
-    @wild_cards = Activity.wild_card if admin?
+    @wild_cards = Activity.wild_card
   end
 
   def show

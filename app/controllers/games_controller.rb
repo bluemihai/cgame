@@ -53,7 +53,10 @@ class GamesController < ApplicationController
   private
     def host_or_admin_only
       unless current_user && (current_user.host? || current_user.admin?)
-        redirect_to :back, :alert => "Action only permitted for hosts.  Please sign in or join us and become one!"
+        redirect_back(
+          fallback_location: root_path,
+          alert: "Action only permitted for hosts.  Please sign in or join us and become one!"
+        )
       end
     end
 

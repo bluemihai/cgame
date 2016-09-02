@@ -37,10 +37,14 @@
       %tbody
         - @wild_cards.each do |activity|
           %tr
-            %td= link_to admin? ? activity.name : "WC ##{activity.id}", activity
+            - if admin?
+              %td= link_to activity.name, activity
+            - else
+              %td= "WC ##{activity.id}"
             %td.text-center= activity.wild_card_weight
             %td.text-center= show_bool(activity.active?)
-            %td= link_to simpler_format(activity.haiku), activity
+            %td
+              = link_to simpler_format(activity.haiku), activity if admin?
             %td.admin-only= link_to 'Edit', edit_activity_path(activity)
             %td.admin-only= link_to 'Destroy', activity, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
