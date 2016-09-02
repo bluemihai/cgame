@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :games
   resources :activities
   resources :users
-  root to: 'visitors#index'
+  root to: 'activities#index'
   get '/auth/:provider/callback' => 'sessions#create'
   get '/signin' => 'sessions#new', :as => :signin
   get '/signout' => 'sessions#destroy', :as => :signout

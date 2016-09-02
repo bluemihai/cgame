@@ -4,8 +4,6 @@ development:
   encoding: unicode
   database: cgame_development
   pool:     5
-  username: cgame
-  password:
   template: template0
 
 test:
@@ -14,6 +12,4 @@ test:
   encoding: unicode
   database: cgame_test
   pool:     5
-  username: cgame
-  password:
   template: template0

@@ -1,4 +1,6 @@
 %li= link_to 'Activities', activities_path
 %li= link_to 'C-Games', games_path
-%li= link_to 'Host A C-Game', new_game_path
+- if host_or_admin?
+  %li= link_to 'Create Activity', new_activity_path
+  %li= link_to 'Host C-Game', new_game_path
 = render '/layouts/nav_links_for_auth'

@@ -1,10 +1,14 @@
-= game.starting.strftime('%b-%d, %H:%M')
-at
-= link_to game.location.try(:name), game.location
-= game.host.try(:name)
-= link_to 'RSVP on Facebook', game.facebook_event_url
-= game.review
-- if host_or_admin?
-  = link_to 'Edit', edit_game_path(game)
-  = link_to 'Destroy', game, :method => :delete, :data => { :confirm => 'Are you sure?' }
-%br
+.large-3.medium-3.small-6.columns
+  = link_to default_time(game.starting), game
+.large-3.medium-3.small-6.columns
+  at
+  = link_to game.location.try(:name), game.location
+.large-2.medium-2.small-46.columns
+  Host:
+  = game.host.try(:first_last_initial)
+.large-4.medium-4.small-6.columns
+  %span= link_to 'RSVP', game.facebook_event_url
+  - if host_or_admin?
+    %span.admin-only= link_to 'Edit', edit_game_path(game)
+    %span.admin-only= link_to 'Destroy', game, :method => :delete, :data => { :confirm => 'Are you sure?' }
+%hr

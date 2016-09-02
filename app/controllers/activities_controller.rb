@@ -2,11 +2,8 @@ class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
 
   def index
-    if host_or_admin?
-      @activities = Activity.all
-    else
-      @activities = Activity.non_wild_card
-    end
+    @activities = Activity.main
+    @wild_cards = Activity.wild_card
   end
 
   def show
@@ -60,6 +57,6 @@ class ActivitiesController < ApplicationController
 
     def activity_params
       params.require(:activity).permit(:name, :description, :wild_card_weight,
-        :image_url, :main, :active)
+        :image_url, :main, :active, :haiku)
     end
 end

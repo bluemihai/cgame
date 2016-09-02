@@ -1,3 +1,32 @@
+/ %p
+/   C-Game awaits you
+/   %br
+/   At this
+/   = link_to 'date', '#', title: @game.starting.strftime('%b-%d, %H:%M')
+/   and
+/   = link_to 'location', @game.location, title: @game.location.name
+/   %br
+/   = link_to 'RSVP here', @game.facebook_event_url
+/
+#left-side
+  .upper-left= image_tag('upper.png')
+  .content
+    .cgame-est= image_tag('cgame_est.png')
+    .values
+      - VALUES.each do |value|
+        .row= value
+  .lower-left= image_tag('lower.png')
+
+#right-side
+  .upper-right
+  #right-side-content
+    .main-courses
+    %ul.activities= render @activities.order(:id)
+  .lower-right
+
+.extra
+
+
 %h1 Activities
 
 %table
@@ -14,8 +43,7 @@
     - @activities.each do |activity|
       %tr
         %td= link_to activity.name, activity
-        %td
-          = activity.description.gsub(/\n/, '<br>').html_safe rescue ''
+        %td= simpler_format(activity.description)
         %td= activity.wild_card_weight
         %td= activity.image_url
         %td= link_to 'Show', activity

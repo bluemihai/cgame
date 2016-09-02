@@ -1,18 +1,19 @@
-%p#notice= notice
+%h2
+  %span= @activity.name
+  %span.admin-only= link_to '(Edit)', edit_activity_path(@activity)
+
 
 %p
-  %b Name:
-  = link_to @activity.name, @activity
-%p
-  %b Description:
-  = simple_format(@activity.description)
-%p
-  %b Wild card weight:
-  = @activity.wild_card_weight
-%p
-  %b Image url:
-  = @activity.image_url
+  = image_tag(@activity.image_url) if @activity.image_url
+/ %h4= @activity.description.gsub(/\n/, '<br>').html_safe, activity
+%h4.activity-description= link_to @activity.haiku.gsub(/\n/, '<br>').html_safe, @activity
 
-= link_to 'Edit', edit_activity_path(@activity)
-\|
-= link_to 'Back', activities_path
+%hr
+%h4.activity-description= link_to simpler_format(@activity.description), @activity
+
+/   %b Wild card weight:
+/   = @activity.wild_card_weight
+/ %p
+/   %b Image url:
+/   = @activity.image_url
+.padding

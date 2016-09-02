@@ -1,12 +1,19 @@
-%p
-  C-Game awaits you
-  %br
-  At this
-  = link_to 'date', '#', title: @game.starting.strftime('%b-%d, %H:%M')
-  and
-  = link_to 'location', @game.location, title: @game.location.name
-  %br
-  = link_to 'RSVP here', @game.facebook_event_url
+.row
+  .large-4.medium-4.small-12.columns
+    C-Game awaits you
+    %br
+    At this
+    = link_to 'date', '#', title: default_time(@game.starting)
+    and
+    = link_to 'location', @game.location, title: @game.location.name
+    %br
+    = link_to 'RSVP here', @game.facebook_event_url
+  .large-8.medium-8.small-12.columns
+    = default_time(@game.starting)
+    %br
+    = link_to @game.location.full, @game.location
+    %br
+    = link_to @game.facebook_event_url, @game.facebook_event_url
 
 #left-side
   .upper-left= image_tag('upper.png')

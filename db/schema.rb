@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20160901171148) do
     t.datetime "updated_at",                       null: false
     t.boolean  "main",             default: false
     t.boolean  "active",           default: true
+    t.text     "haiku",            default: "t"
   end
 
   create_table "games", force: :cascade do |t|

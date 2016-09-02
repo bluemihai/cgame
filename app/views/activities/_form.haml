@@ -6,8 +6,10 @@
     .large-3.medium-3.small-6.columns= f.input :wild_card_weight, collection: (0..3), label: 'WC Weight'
     .large-3.medium-3.small-6.columns= f.input :main, as: :select
     .large-3.medium-3.small-6.columns= f.input :active, as: :select
-    = f.input :description
-    = f.input :image_url
+    .large-4.medium-6.small-12.columns= f.input :haiku, input_html: { rows: 4}
+    .large-4.medium-6.small-12.columns= f.input :description, input_html: { rows: 4}
+    .large-4.medium-12.small-12.columns= f.input :image_url
 
+  %hr
   .form-actions
-    = f.button :submit
+    = f.button :submit, 'Save'

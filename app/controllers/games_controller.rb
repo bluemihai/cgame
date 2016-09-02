@@ -3,7 +3,7 @@ class GamesController < ApplicationController
   before_action :host_or_admin_only, except: [:index, :show]
 
   def index
-    @games = Game.all
+    @games = Game.order(:starting)
   end
 
   def show
