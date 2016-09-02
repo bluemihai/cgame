@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160830163404) do
+ActiveRecord::Schema.define(version: 20160901171148) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,8 +20,10 @@ ActiveRecord::Schema.define(version: 20160830163404) do
     t.text     "description"
     t.integer  "wild_card_weight"
     t.string   "image_url"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.boolean  "main",             default: false
+    t.boolean  "active",           default: true
   end
 
   create_table "games", force: :cascade do |t|

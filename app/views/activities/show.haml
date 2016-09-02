@@ -2,10 +2,10 @@
 
 %p
   %b Name:
-  = @activity.name
+  = link_to @activity.name, @activity
 %p
   %b Description:
-  = @activity.description
+  = simple_format(@activity.description)
 %p
   %b Wild card weight:
   = @activity.wild_card_weight

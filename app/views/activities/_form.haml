@@ -2,9 +2,11 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :name
+    .large-3.medium-3.small-6.columns= f.input :name
+    .large-3.medium-3.small-6.columns= f.input :wild_card_weight, collection: (0..3), label: 'WC Weight'
+    .large-3.medium-3.small-6.columns= f.input :main, as: :select
+    .large-3.medium-3.small-6.columns= f.input :active, as: :select
     = f.input :description
-    = f.input :wild_card_weight
     = f.input :image_url
 
   .form-actions

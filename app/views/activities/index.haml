@@ -5,8 +5,7 @@
     %tr
       %th Name
       %th Description
-      %th Wild card weight
-      %th Image url
+      %th WC
       %th
       %th
       %th
@@ -14,8 +13,9 @@
   %tbody
     - @activities.each do |activity|
       %tr
-        %td= activity.name
-        %td= activity.description
+        %td= link_to activity.name, activity
+        %td
+          = activity.description.gsub(/\n/, '<br>').html_safe rescue ''
         %td= activity.wild_card_weight
         %td= activity.image_url
         %td= link_to 'Show', activity
