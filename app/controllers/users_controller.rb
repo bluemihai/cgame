@@ -59,7 +59,7 @@ class UsersController < ApplicationController
   def secure_params
     if @user == current_user
       params.require(:user).permit(:name, :email, :prefs, :facebook_id)
-    elsif current_user.admin?
+    elsif (current_user.admin? || current_user.host?)
       params.require(:user).permit(:name, :email, :prefs, :facebook_id, :role)
     end
   end
