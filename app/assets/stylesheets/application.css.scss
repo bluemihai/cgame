@@ -29,3 +29,10 @@
 .padding {
   min-height: 500px
 }
+
+.action {
+  a, a:visited {
+    color: green;
+    font-style: italic;
+  };
+}

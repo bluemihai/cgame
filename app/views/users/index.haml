@@ -4,10 +4,12 @@
       Users&nbsp;
       = link_to '(Add)', new_user_path
     .column
-      %table
+      %table#users-table.compact
         %thead
           %th Name
           %th.text-center Games
+          %th Social
+          %th Admin
         %tbody
-          - @users.each do |user|
+          - @users.order(:id).each do |user|
             %tr= render user

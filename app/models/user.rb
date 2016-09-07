@@ -7,6 +7,10 @@ class User < ActiveRecord::Base
 
   scope :host_or_admin, -> { where('role > 0') }
 
+  def facebook_url
+    "http://facebook.com/#{facebook_id}"
+  end
+
   def first_last_initial
     names = name.split(' ')
     "#{names[0]} #{names[1][0]}."
