@@ -6,6 +6,8 @@
     .large-4.medium-4.small-12.columns= f.association :cohost, collection: User.host_or_admin
     .large-4.medium-4.small-12.columns= f.association :location
     .large-4.medium-4.small-12.columns= f.input :facebook_event_url
+    .large-4.medium-4.small-12.columns= f.input :decoration, collection: 'a'..'c'
+    .large-4.medium-4.small-12.columns= f.input :color
     .large-6.medium-6.small-12.columns
       = f.input :starting, minute_step: 30
       = f.input :ending, minute_step: 30

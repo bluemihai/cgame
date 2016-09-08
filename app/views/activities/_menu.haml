@@ -1,19 +1,24 @@
+- dec = game.try(:decoration_choice) || 'a'
 #menu
   #left-side
-    .upper-left= image_tag('upper.png')
+    .upper-left= image_tag("dec-#{dec}-upper.png")
     .content
       .cgame-est= image_tag('cgame_est.png')
       .values
         - VALUES.each do |value|
           .row= value
-    .lower-left= image_tag('lower.png')
+    .lower-left= image_tag("dec-#{dec}-lower.png")
 
   #right-side
-    .upper-right
+    .upper-right.text-center
+      - 5.times do
+        = image_tag("dec-#{dec}-upper-tiny.png")
     #right-side-content
       .main-courses
         - if host_or_admin? && game
           = link_to image_tag('settings.png', size: 20), edit_game_path(game)
       - activities.order(:name).in_groups_of(3, false).each do |group|
         .large-6.medium-6.small-12.columns= render group
-    .lower-right
+    .lower-right.text-center
+      - 5.times do
+        = image_tag("dec-#{dec}-lower-tiny.png")

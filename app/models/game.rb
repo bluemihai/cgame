@@ -12,6 +12,14 @@ class Game < ApplicationRecord
   has_many :users, through: :rsvps
 
 
+  def decoration_choice
+    decoration || ('a'..'c').to_a.sample
+  end
+
+  def color_choice
+    ['red', 'blue', 'green'].sample
+  end
+
   def self.upcoming
     select{ |game| game.starting > Time.zone.now }.sort_by(&:starting)
   end

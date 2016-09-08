@@ -24,10 +24,10 @@ descriptions = {
 }
 
 wild_cards = [
-  "How Do You Like To Be Kissed?",
-  "Get 'Naked'",
-  "Co-Create A Gift",
-  "Hot Seat"
+  "Wild Card K",
+  "Wild Card Q",
+  "Wild Card J",
+  "Wild Card 10"
 ]
 
 descriptions.each do |k, v|
@@ -38,8 +38,9 @@ wild_cards.each do |w|
   Activity.create(name: w, wild_card_weight: 1)
 end
 
-User.create!(name: 'Mihai Banulescu', role: :host)
-User.create!(name: 'David Lapedis', role: :host)
+User.create!(name: 'Mihai Banulescu', role: :admin)
+User.create!(name: 'David Lapedis', role: :admin)
+User.create!(name: 'Jon Connors', role: :host)
 
 user_names = [
   'Elizabeth Masselink',
