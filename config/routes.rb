@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :haikus
   resources :rsvps
   resources :locations
   resources :games

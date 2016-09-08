@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
     "http://facebook.com/#{facebook_id}"
   end
 
+  def first_name
+    name.split(' ').first
+  end
+
   def first_last_initial
     names = name.split(' ')
     "#{names[0]} #{names[1][0]}."

@@ -3,6 +3,7 @@ class Game < ApplicationRecord
 
   belongs_to :location
   belongs_to :host, class_name: 'User'
+  belongs_to :cohost, class_name: 'User', required: false
 
   has_many :menu_items
   has_many :activities, through: :menu_items

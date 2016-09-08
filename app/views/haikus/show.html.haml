@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Author:
+  = @haiku.author_id
+%p
+  %b Activity:
+  = @haiku.activity_id
+%p
+  %b Content:
+  = @haiku.content
+
+= link_to 'Edit', edit_haiku_path(@haiku)
+\|
+= link_to 'Back', haikus_path

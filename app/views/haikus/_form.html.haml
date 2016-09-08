@@ -1,0 +1,17 @@
+= simple_form_for(@haiku) do |f|
+  = f.error_notification
+
+  .form-inputs
+    .large-6.medium-6.small-6.columns
+      - if !@haiku.author && current_user
+        = f.association :author, collection: User.order(:name), include_blank: true, selected: current_user.id
+        = f.association :activity, collection: Activity.order(:name), autofocus: true
+      - else
+        = f.association :author, collection: User.order(:name), include_blank: true, autofocus: true
+        = f.association :activity, collection: Activity.order(:name)
+    .large-6.medium-6.small-6.columns= f.input :activity_name
+    .large-6.medium-6.small-6.columns= f.input :content, input_html: { rows: 4 }
+
+  %hr
+  .form-actions
+    = f.button :submit, 'Save Haiku'

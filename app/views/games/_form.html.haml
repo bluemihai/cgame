@@ -3,6 +3,7 @@
 
   .form-inputs
     .large-4.medium-4.small-12.columns= f.association :host, collection: User.host_or_admin
+    .large-4.medium-4.small-12.columns= f.association :cohost, collection: User.host_or_admin
     .large-4.medium-4.small-12.columns= f.association :location
     .large-4.medium-4.small-12.columns= f.input :facebook_event_url
     .large-6.medium-6.small-12.columns

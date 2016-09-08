@@ -24,21 +24,5 @@
     %h4= "Remembering #{@game.starting.strftime('%b-%d')} at #{@game.location.name}"
     = simpler_format(@game.review)
 
-#left-side
-  .upper-left= image_tag('upper.png')
-  .content
-    .cgame-est= image_tag('cgame_est.png')
-    .values
-      - VALUES.each do |value|
-        .row= value
-  .lower-left= image_tag('lower.png')
-
-#right-side
-  .upper-right
-  #right-side-content
-    .main-courses
-      .admin-only.edit-button= link_to 'Edit Game', edit_game_path(@game), class: 'button-xs' if host_or_admin?
-    %ul.activities= render @game.activities.order(:name)
-  .lower-right
-
+= render 'activities/menu', game: @game, activities: @game.activities
 .extra

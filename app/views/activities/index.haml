@@ -1,6 +1,9 @@
 - if host_or_admin?
 
-  %h2 Activities
+  %h2
+    Activities
+    - if host_or_admin?
+      %sup= link_to image_tag('plus.png', size: 12), new_activity_path
 
   %table
     %thead
@@ -55,22 +58,8 @@
   
 - else
 
-  #left-side
-    .upper-left= image_tag('upper.png')
-    .content
-      .cgame-est= image_tag('cgame_est.png')
-      .values
-        - VALUES.each do |value|
-          .row= value
-    .lower-left= image_tag('lower.png')
+  = render 'activities/menu', game: nil, activities: @activities
 
-  #right-side
-    .upper-right
-    #right-side-content
-      .main-courses
-      %ul.activities= render @activities.order(:id)
-    .lower-right
-
-  .extra
+.extra
 
 

@@ -1,0 +1,30 @@
+%h2
+  Haikus
+  - if host_or_admin?
+    %sup= link_to image_tag('plus.png', size: 12), new_haiku_path
+
+
+%table
+  %thead
+    %tr
+      %th For/By
+      %th Poem
+      %th.text-center Added
+      - if host_or_admin?
+        %th.admin-only.text-center Admin
+
+  %tbody
+    - @haikus.each do |haiku|
+      %tr
+        %td
+          = link_to haiku.activity.try(:name), haiku.activity
+          %br
+          .byline (by&nbsp;
+          .byline= link_to haiku.author.try(:first_name), haiku.author
+          .byline )
+        %td= link_to simpler_format(haiku.content), haiku
+        %td.text-center= simpler_format(haiku.created_at.strftime("%b\n%d"))
+        %td.admin-only.text-center
+          = link_to image_tag('settings.png', size: 20), edit_haiku_path(haiku)
+          &nbsp;&nbsp;
+          = link_to image_tag('x.png', size: 20), haiku, :method => :delete, :data => { :confirm => 'Are you sure?' }
