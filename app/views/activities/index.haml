@@ -58,7 +58,7 @@
   
 - else
 
-  = render 'activities/menu', game: nil, activities: @activities
+  = render 'activities/menu', game: nil, activities: @activities.order(:name).in_groups_of(3, false)
 
 .extra
 
