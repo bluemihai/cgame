@@ -24,5 +24,5 @@
     %h4= "Remembering #{@game.starting.strftime('%b-%d')} at #{@game.location.name}"
     = simpler_format(@game.review)
 
-= render 'activities/menu', game: @game, activities: @game.activities
+= render 'activities/menu', game: @game, activities: @game.activities.order(:id)
 .extra

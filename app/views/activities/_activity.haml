@@ -1,5 +1,5 @@
 %li.activity
-  %h4= link_to "#{activity.id}. #{activity.name}", activity
+  %h4= link_to "#{activity.name}", activity
   = link_to simpler_format(activity.haiku), activity
   - if host_or_admin?
     %sup
