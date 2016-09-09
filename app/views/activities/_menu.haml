@@ -11,16 +11,15 @@
 
   #right-side
     .upper-right.text-center
-      - 5.times do
-        = image_tag("dec-#{dec}-upper-tiny.png")
+      - 6.times do
+        .tiny-dec= image_tag("dec-#{dec}-upper-tiny.png")
     #right-side-content
       .main-courses
         - if host_or_admin? && game
           = link_to image_tag('settings.png', size: 20), edit_game_path(game)
-      - activities.each_with_index do |group, g_idx|
-        .large-6.medium-6.small-12.columns
-          - group.each_with_index do |activity, a_idx|
-            = render 'activities/activity', activity: activity, number: g_idx * 3 + a_idx
+      - cols = [2, activities.count / 3].max
+      .activities{style: "-webkit-column-count: #{cols}, -moz-column-count: #{cols}; column-count: #{cols};"}
+        = render activities
     .lower-right.text-center
-      - 5.times do
-        = image_tag("dec-#{dec}-lower-tiny.png")
+      - 6.times do
+        .tiny-dec= image_tag("dec-#{dec}-lower-tiny.png")

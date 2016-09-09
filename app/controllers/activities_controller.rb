@@ -2,9 +2,15 @@ class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
 
   def index
-    @activities = host_or_admin? ? Activity.non_wild_card : Activity.main
-    @activities = @activities.order(:name)
-    @wild_cards = Activity.wild_card
+    @activities = Activity.non_wild_card.shuffle
+  end
+
+  def wildcards
+    @activities = Activity.wild_card
+  end
+
+  def menu
+    @activities = Activity.main.shuffle
   end
 
   def show

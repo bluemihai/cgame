@@ -4,6 +4,8 @@
 
 
 .activity {
+  display: inline-block;
+  min-height: 120px;
 }
 
 li.activity {
@@ -13,15 +15,20 @@ li.activity {
 }
 
 .activities {
+  margin: 0px 10px;
+  height: 400px;
+  overflow-x: auto;
   float: left;
-  li:not(:last-child):after {
-    height: 1px;
-    background: #333;
-    width: 45%;
-    display: block;
-    content: "";
-    margin: 10px auto;
-  }  
+  padding-bottom: 20px;
+//  li:not(:nth-child(3n)):after {
+//    height: 1px;
+//    background: #333;
+//    width: 45%;
+//    display: block;
+//    content: "";
+//    margin-bottom: 10px;
+//    margin: auto;
+//  }
 }
 
 .activity-name {
@@ -44,76 +51,87 @@ li.activity {
 
 #left-side {
   vertical-align: top;
-  width: 240px;
-  min-height: 600px;
+  height: 600px;
+  width: 225px;
+  min-width: 225px;
+  max-width: 225px;
   background-color: white;
   border: 1px solid blue;
   display: table-cell;
+  position: relative;
+
+  .upper-left {
+    margin-left: 4px solid white;
+    background-color: white;
+    padding-bottom: 70px;
+    width: 225px;
+  }
+
+  .content {
+    width: 100%;
+    margin: auto;
+
+    .cgame-est {
+      float: left;
+    }
+
+    .values {
+      text-align: center;
+    }
+  }
+
+  .lower-left {
+    margin-left: 8px solid white;
+    margin-right: 4px solid white;
+    background-color: white;
+    width: 225px;
+    overflow-x: hide;
+    position: absolute;
+    bottom: 0;
+  }
+
 }
 
 #right-side {
   vertical-align: top;
   width: 560px;
-  min-height: 600px;
-  background-color: white;
+  height: 600px;
   border: 1px solid blue;
   display: table-cell;
-}
 
-.content {
-  background-color: white;
-  width: 100%;
-  margin: auto;
-}
+  .upper-right {
+    width: 100%;
+    height: 44px;
+  }
 
-#right-side-content {
-  background-color: white;
-  width: 100%;
-  margin: auto;
-  min-height: 495px;
-}
+  #right-side-content {
+    background-color: white;
+    width: 700px;
+    overflow-x: scroll;
+    margin: auto;
+    height: 510px;
+    position: relative;
 
-.upper-left {
-  margin-left: 4px solid white;
-  background-color: white;
-  padding-bottom: 70px;
-}
+    .main-courses {
+      margin: 20px 0px 10px 0px;
+      background-image: image-url('main-courses.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 80px;
+    }
+  }
 
-.lower-left {
-  margin-left: 8px solid white;
-  margin-right: 4px solid white;
-  background-color: white;
-}
-
-.cgame-est {
-  margin-bottom: 70px;
-  background-color: white;
-}
-
-.values {
-  text-align: center;
-  padding-bottom: 70px;
+  .lower-right {
+    width: 100%;
+    height: 44px;
+  }
 }
 
 .extra {
   height: 400px;
 }
 
-.upper-right {
-  width: 100%;
-  height: 40px;
-  margin-top: 5px;
-}
-
-.lower-right {
-  width: 100%;
-  height: 40px;
-}
-
-.main-courses {
-  margin: auto;
-  background-image: image-url('main-courses.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100px;
+.tiny-dec {
+  display: inline;
+  margin: 0px 10px;
 }

@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :games
   resources :activities
   resources :users
-  root to: 'activities#index'
+  root to: 'activities#menu'
+  get '/wild_*^@_cards' => 'activities#wildcards', as: :wildcards
+  get '/menu' => 'activities#menu', as: :menu
   get '/w_c' => 'visitors#wildcard', as: :wildcard
   get '/auth/:provider/callback' => 'sessions#create'
   get '/signin' => 'sessions#new', :as => :signin

@@ -26,6 +26,7 @@ gem 'omniauth-google-oauth2'
 gem 'pg'
 gem 'simple_form'
 gem 'thin'
+gem 'jquery-datatables-rails', '~> 3.3.0'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'

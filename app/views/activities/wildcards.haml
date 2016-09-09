@@ -12,20 +12,24 @@
   %thead
     %tr
       %th Name
-      %th.text-center Main?
+      %th.text-center Weight
       %th.text-center Active?
       %th Haiku
-      %th.text-center Added
+      %th Added
       %th
       %th
 
   %tbody
     - @activities.each do |activity|
       %tr
-        %td= link_to activity.name, activity
-        %td.text-center= show_bool(activity.main?)
+        - if admin?
+          %td= link_to activity.name, activity
+        - else
+          %td= "WC ##{activity.id}"
+        %td.text-center= activity.wild_card_weight
         %td.text-center= show_bool(activity.active?)
-        %td= link_to simpler_format(activity.haiku), activity
+        %td
+          = link_to simpler_format(activity.haiku), activity if admin?
         %td.text-center= activity.created_at.strftime('%a, %b-%d')
         %td.admin-only= link_to 'Edit', edit_activity_path(activity)
         %td.admin-only= link_to 'Destroy', activity, :method => :delete, :data => { :confirm => 'Are you sure?' }
