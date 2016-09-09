@@ -1,4 +1,4 @@
-- dec = game.try(:decoration_choice) || 'a'
+- dec = game.try(:decoration_choice) || Game.rand_decoration
 #menu
   #left-side
     .upper-left= image_tag("dec-#{dec}-upper.png")

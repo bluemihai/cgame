@@ -12,8 +12,12 @@ class Game < ApplicationRecord
   has_many :users, through: :rsvps
 
 
+  def self.rand_decoration
+    ('a'..'i').to_a.sample
+  end
+
   def decoration_choice
-    decoration || ('a'..'c').to_a.sample
+    decoration || Game.rand_decoration
   end
 
   def color_choice
