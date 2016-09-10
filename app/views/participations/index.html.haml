@@ -1,0 +1,27 @@
+%h1 Listing participations
+
+%table
+  %thead
+    %tr
+      %th Group
+      %th User
+      %th Rating
+      %th Comment
+      %th
+      %th
+      %th
+
+  %tbody
+    - @participations.each do |participation|
+      %tr
+        %td= participation.group_id
+        %td= participation.user_id
+        %td= participation.rating
+        %td= participation.comment
+        %td= link_to 'Show', participation
+        %td= link_to 'Edit', edit_participation_path(participation)
+        %td= link_to 'Destroy', participation, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Participation', new_participation_path

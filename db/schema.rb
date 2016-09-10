@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160908183034) do
+ActiveRecord::Schema.define(version: 20160910151955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,16 @@ ActiveRecord::Schema.define(version: 20160908183034) do
     t.string   "color"
   end
 
+  create_table "groups", force: :cascade do |t|
+    t.integer  "round_id"
+    t.integer  "activity_id"
+    t.integer  "wc_id"
+    t.string   "wc_interpretation"
+    t.string   "wc_curation"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
   create_table "haikus", force: :cascade do |t|
     t.integer  "author_id"
     t.integer  "activity_id"
@@ -67,6 +77,23 @@ ActiveRecord::Schema.define(version: 20160908183034) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "haiku_id"
+  end
+
+  create_table "participations", force: :cascade do |t|
+    t.integer  "group_id"
+    t.integer  "user_id"
+    t.integer  "rating"
+    t.text     "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rounds", force: :cascade do |t|
+    t.integer  "game_id"
+    t.integer  "order"
+    t.string   "method_split"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "rsvps", force: :cascade do |t|

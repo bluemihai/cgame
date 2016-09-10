@@ -8,11 +8,11 @@
   %span.action= link_to 'Menu', menu_path
   %span &nbsp&nbsp|&nbsp&nbsp
   - if wild
-    %span.action= link_to 'Main Courses', activities_path
+    %span.action= link_to "#{Activity.non_wild_card.size} Main Courses", activities_path
     %span &nbsp&nbsp|&nbsp&nbsp
-    %span.action Wild Cards
+    %span.action= "#{Activity.wild_card.size} Wild Cards"
   - else
-    %span.action Main Courses
+    %span.action= "#{Activity.non_wild_card.size} Main Courses"
     %span &nbsp&nbsp|&nbsp&nbsp
-    %span.action= link_to 'Wild Cards', wildcards_path
+    %span.action= link_to "#{Activity.wild_card.size} Wild Cards", wildcards_path
   

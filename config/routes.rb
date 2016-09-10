@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :participations
+  resources :groups
+  resources :rounds
   resources :haikus
   resources :rsvps
   resources :locations

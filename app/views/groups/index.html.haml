@@ -1,0 +1,29 @@
+%h1 Listing groups
+
+%table
+  %thead
+    %tr
+      %th Round
+      %th Activity
+      %th Wc
+      %th Wc interpretation
+      %th Wc curation
+      %th
+      %th
+      %th
+
+  %tbody
+    - @groups.each do |group|
+      %tr
+        %td= group.round_id
+        %td= group.activity_id
+        %td= group.wc_id
+        %td= group.wc_interpretation
+        %td= group.wc_curation
+        %td= link_to 'Show', group
+        %td= link_to 'Edit', edit_group_path(group)
+        %td= link_to 'Destroy', group, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Group', new_group_path

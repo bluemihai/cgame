@@ -1,0 +1,12 @@
+= simple_form_for(@group) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :round_id
+    = f.input :activity_id
+    = f.input :wc_id
+    = f.input :wc_interpretation
+    = f.input :wc_curation
+
+  .form-actions
+    = f.button :submit

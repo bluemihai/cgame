@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Round:
+  = @group.round_id
+%p
+  %b Activity:
+  = @group.activity_id
+%p
+  %b Wc:
+  = @group.wc_id
+%p
+  %b Wc interpretation:
+  = @group.wc_interpretation
+%p
+  %b Wc curation:
+  = @group.wc_curation
+
+= link_to 'Edit', edit_group_path(@group)
+\|
+= link_to 'Back', groups_path

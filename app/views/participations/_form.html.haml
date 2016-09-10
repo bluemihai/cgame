@@ -1,0 +1,11 @@
+= simple_form_for(@participation) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :group_id
+    = f.input :user_id
+    = f.input :rating
+    = f.input :comment
+
+  .form-actions
+    = f.button :submit

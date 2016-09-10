@@ -7,6 +7,7 @@ class Game < ApplicationRecord
 
   has_many :menu_items
   has_many :activities, through: :menu_items
+  has_many :rounds
 
   has_many :rsvps
   has_many :users, through: :rsvps

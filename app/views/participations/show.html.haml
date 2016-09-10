@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Group:
+  = @participation.group_id
+%p
+  %b User:
+  = @participation.user_id
+%p
+  %b Rating:
+  = @participation.rating
+%p
+  %b Comment:
+  = @participation.comment
+
+= link_to 'Edit', edit_participation_path(@participation)
+\|
+= link_to 'Back', participations_path
