@@ -7,6 +7,10 @@ class Activity < ApplicationRecord
   scope :non_wild_card, -> { where(wild_card_weight: 0).where(active: true) }
   scope :main, -> { where(main: true) }
 
+  def name_with_wc
+    wild_card_weight > 0 ? "WC => #{name}" : name
+  end
+
   def id_obscured
     id.to_s.last(3)
   end

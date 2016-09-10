@@ -2,27 +2,43 @@
   = f.error_notification
 
   .form-inputs
-    .large-4.medium-4.small-12.columns= f.association :host, collection: User.host_or_admin
-    .large-4.medium-4.small-12.columns= f.association :cohost, collection: User.host_or_admin
-    .large-4.medium-4.small-12.columns= f.association :location
-    .large-4.medium-4.small-12.columns= f.input :facebook_event_url
-    .large-4.medium-4.small-12.columns= f.input :decoration, collection: 'a'..'c'
-    .large-4.medium-4.small-12.columns= f.input :color
-    .large-6.medium-6.small-12.columns
-      = f.input :starting, minute_step: 30
-      = f.input :ending, minute_step: 30
-      = f.button :submit, 'Save'
-    .large-6.medium-6.small-6.columns
-      %h4 Build Activities Menu
-      = f.association :activities, as: :check_boxes, collection: Activity.non_wild_card.order(:name), label: false
-    %hr
-    .large-3.medium-3.small-12.columns
-      %h4 Attendees
-      = f.association :users, as: :check_boxes, collection: User.order(:name), label: false
-    .large-9.medium-9.small-12.columns
-      %h4 Review
-      = f.input :review, input_html: { rows: 40}, label: false
+    #preparation
+      %h2 Preparation
+      .large-4.medium-4.small-12.columns= f.association :host, collection: User.host_or_admin
+      .large-4.medium-4.small-12.columns= f.association :cohost, collection: User.host_or_admin
+      .large-4.medium-4.small-12.columns= f.association :location
+      .large-4.medium-4.small-12.columns= f.input :facebook_event_url
+      .large-4.medium-4.small-12.columns= f.input :decoration, collection: 'a'..'i'
+      .large-4.medium-4.small-12.columns= f.input :color
+      .large-6.medium-6.small-12.columns
+        = f.input :starting, minute_step: 30
+        = f.input :ending, minute_step: 30
+        = f.button :submit, 'Save'
+      .large-6.medium-6.small-6.columns
+        %h4 Build Activities Menu
+        .build-menu= f.association :activities, as: :check_boxes, collection: Activity.non_wild_card.order(:name), label: false
+      %hr
+    #review
+      %h2 Review
+      .large-6.medium-6.small-12.columns
+        %h4
+          Rounds&nbsp;
+          %sup= link_to image_tag('plus.png', size: 12), new_game_round_path(@game)
+        = render @game.rounds
+      .large-6.medium-6.small-12.columns
+        %h4
+          Groups&nbsp;
+      %hr
+      .large-6.medium-12.small-12.columns
+        %h4
+          Attendees&nbsp;
+          %sup= link_to image_tag('plus.png', size: 12), new_group_path
+        .select-attendees.text-columns-3
+          = f.association :users, as: :check_boxes, collection: User.order(:name) - [User.find_by(name: 'Co-Created'), User.find_by(name: 'Example User')], label: false
+      .large-6.medium-12.small-12.columns
+        %h4 Host Recap
+        = f.input :review, input_html: { rows: 12}, label: false
 
-    %hr
+      %hr
   .form-actions
     = f.button :submit, 'Save'

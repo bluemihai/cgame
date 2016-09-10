@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20160910151955) do
   create_table "groups", force: :cascade do |t|
     t.integer  "round_id"
     t.integer  "activity_id"
-    t.integer  "wc_id"
+    t.boolean  "wild_card"
     t.string   "wc_interpretation"
     t.string   "wc_curation"
     t.datetime "created_at",        null: false

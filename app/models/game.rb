@@ -13,6 +13,10 @@ class Game < ApplicationRecord
   has_many :users, through: :rsvps
 
 
+  def name
+    "#{starting.strftime('%a %b-%d')} at #{location.name}"
+  end
+
   def self.rand_decoration
     ('a'..'i').to_a.sample
   end

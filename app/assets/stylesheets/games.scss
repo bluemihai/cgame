@@ -15,3 +15,28 @@
   margin-right: 5px;
   padding: 10px;
 }
+
+#preparation {
+  position: relative;
+}
+
+.save-game {
+  position: absolute;
+  bottom: 0;
+  margin-left: 15px;
+}
+
+.build-menu {
+  -webkit-column-count: 2; /* Chrome, Safari, Opera */
+  -moz-column-count: 2; /* Firefox */
+  column-count: 2;
+}
+
+.select-attendees {
+  label {
+    font-size: 80%;
+    input {
+      margin-bottom: 4px;
+    }
+  }
+}

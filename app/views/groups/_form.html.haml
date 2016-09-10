@@ -2,11 +2,12 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :round_id
-    = f.input :activity_id
-    = f.input :wc_id
-    = f.input :wc_interpretation
-    = f.input :wc_curation
+    .large-4.medium-4.small-6.columns= f.association :round, selected: @group.round_id || params[:round_id]
+    .large-4.medium-4.small-6.columns= f.input :wild_card, as: :select
+    .large-4.medium-4.small-6.columns= f.association :activity, label_method: :name_with_wc, collection: Activity.order(:wild_card_weight, :name)
+    .large-6.medium-6.small-6.columns= f.input :wc_interpretation, as: :text, input_html: { rows: 4 }, label: 'How did the group interpret this Wild Card?'
+    .large-6.medium-6.small-6.columns= f.input :wc_curation, as: :text, input_html: { rows: 4 }, label: 'What WC Activities did the group curate'
 
+  %hr
   .form-actions
     = f.button :submit
