@@ -1,35 +1,31 @@
-%h2
-  Activities
-  - if host_or_admin?
-    %sup= link_to image_tag('plus.png', size: 12), new_activity_path
-
-%h5
-  %span.action= link_to 'Main Courses', activities_path
-  %span &nbsp&nbsp|&nbsp&nbsp
-  %span.action= link_to 'Wild Cards', wildcards_path
+= render 'nav', wild: true
 
 %table#activities-table.compact
   %thead
     %tr
+      %th.text-center Wt
       %th Name
-      %th.text-center Weight
       %th.text-center Active?
       %th Haiku
       %th Added
-      %th
-      %th
+      - if host_or_admin?
+        %th Actions
 
   %tbody
     - @activities.each do |activity|
       %tr
+        %td.text-center= activity.wild_card_weight
         - if admin?
           %td= link_to activity.name, activity
         - else
-          %td= "WC ##{activity.id}"
-        %td.text-center= activity.wild_card_weight
+          %td= "Wild Card ##{activity.id_obscured}"
         %td.text-center= show_bool(activity.active?)
         %td
           = link_to simpler_format(activity.haiku), activity if admin?
-        %td.text-center= activity.created_at.strftime('%a, %b-%d')
-        %td.admin-only= link_to 'Edit', edit_activity_path(activity)
-        %td.admin-only= link_to 'Destroy', activity, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= activity.created_at.strftime('%a, %b-%d')
+        - if host_or_admin?
+          %td.admin-only
+            %span.action= link_to image_tag('settings.png', size: 20), edit_activity_path(activity)
+            %span &nbsp;&nbsp;
+            - confirm = { confirm: 'Are you sure?' }
+            %span.action= link_to image_tag('x.png', size: 20), activity, method: :delete, data: confirm

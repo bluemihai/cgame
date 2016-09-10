@@ -1,0 +1,18 @@
+%h2
+  Activities:
+  = wild ? 'Wild Cards' : 'Main Courses'
+  - if host_or_admin?
+    %sup= link_to image_tag('plus.png', size: 12), new_activity_path
+
+%h5
+  %span.action= link_to 'Menu', menu_path
+  %span &nbsp&nbsp|&nbsp&nbsp
+  - if wild
+    %span.action= link_to 'Main Courses', activities_path
+    %span &nbsp&nbsp|&nbsp&nbsp
+    %span.action Wild Cards
+  - else
+    %span.action Main Courses
+    %span &nbsp&nbsp|&nbsp&nbsp
+    %span.action= link_to 'Wild Cards', wildcards_path
+  

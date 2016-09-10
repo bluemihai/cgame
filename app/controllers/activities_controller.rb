@@ -1,5 +1,6 @@
 class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
+  # before_action :admin_only, except: [:index, :menu, :show]
 
   def index
     @activities = Activity.non_wild_card.shuffle
