@@ -3,7 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+
+#menu {
+}
+
 .activity {
+  margin-left: auto;
+  margin-right: auto;
   display: inline-block;
   min-height: 120px;
 }
@@ -17,7 +23,6 @@ li.activity {
 .activities {
   margin: 0px 10px;
   height: 400px;
-  overflow-x: auto;
   float: left;
   padding-bottom: 20px;
 //  li:not(:nth-child(3n)):after {
@@ -55,19 +60,19 @@ li.activity {
   width: 225px;
   min-width: 225px;
   max-width: 225px;
-  background-color: white;
-  border: 1px solid blue;
   display: table-cell;
   position: relative;
 
   .upper-left {
     margin-left: 4px solid white;
-    background-color: white;
-    padding-bottom: 70px;
     width: 225px;
   }
 
   .content {
+    background-color: white;
+    padding-top: 106px;
+    padding-bottom: 106px;
+    border: 1px solid black;
     width: 100%;
     margin: auto;
 
@@ -83,7 +88,6 @@ li.activity {
   .lower-left {
     margin-left: 8px solid white;
     margin-right: 4px solid white;
-    background-color: white;
     width: 225px;
     overflow-x: hide;
     position: absolute;
@@ -94,9 +98,8 @@ li.activity {
 
 #right-side {
   vertical-align: top;
-  width: 560px;
+  width: 575px;
   height: 600px;
-  border: 1px solid blue;
   display: table-cell;
 
   .upper-right {
@@ -105,10 +108,11 @@ li.activity {
   }
 
   #right-side-content {
+    margin-left: 20px;
+    border: 1px solid black;
     background-color: white;
     width: 700px;
     overflow-x: scroll;
-    margin: auto;
     height: 510px;
     position: relative;
 

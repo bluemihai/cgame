@@ -1,13 +1,13 @@
 - dec = game.try(:decoration_choice) || Game.rand_decoration
 #menu
   #left-side
-    .upper-left= image_tag("dec-#{dec}-upper.png")
+    .upper-left.text-center= image_tag("dec-#{dec}-upper.png", width: 200)
     .content
       .cgame-est= image_tag('cgame_est.png')
       .values
         - VALUES.each do |value|
           .row= value
-    .lower-left= image_tag("dec-#{dec}-lower.png")
+    .lower-left.text-center= image_tag("dec-#{dec}-lower.png", width: 200)
 
   #right-side
     .upper-right.text-center
@@ -17,7 +17,7 @@
       .main-courses
         - if host_or_admin? && game
           = link_to image_tag('settings.png', size: 20), edit_game_path(game)
-      - cols = [2, activities.count / 3].max
+      - cols = [2, (activities.count / 3.0).ceil].max
       .activities{style: "-webkit-column-count: #{cols}, -moz-column-count: #{cols}; column-count: #{cols};"}
         = render activities
     .lower-right.text-center
