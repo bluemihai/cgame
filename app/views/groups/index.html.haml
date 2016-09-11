@@ -1,4 +1,12 @@
-%h1 Listing groups
+%h1= "#{@groups.size} Groups"
+
+- @groups.group_by{ |group| group.activity.name }.each do |k, v|
+  = v.size
+  &nbsp;
+  = k
+  %br
+
+%hr
 
 %table
   %thead
@@ -17,7 +25,7 @@
       %tr
         %td= group.round_id
         %td= group.activity_id
-        %td= group.wc_id
+        %td= group.wild_card
         %td= group.wc_interpretation
         %td= group.wc_curation
         %td= link_to 'Show', group

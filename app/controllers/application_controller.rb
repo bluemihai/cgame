@@ -43,4 +43,10 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    def admin_only!
+      if !current_user || !host_or_admin?
+        redirect_to root_url, :alert => 'Only hosts or admins have access to this page.'
+      end
+    end
+
 end
