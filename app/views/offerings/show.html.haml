@@ -1,0 +1,36 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @offering.name
+%p
+  %b Description:
+  = @offering.description
+%p
+  %b Presenter:
+  = @offering.presenter
+%p
+  %b Price min:
+  = @offering.price_min
+%p
+  %b Price ideal:
+  = @offering.price_ideal
+%p
+  %b Hours min:
+  = @offering.hours_min
+%p
+  %b Hours ideal:
+  = @offering.hours_ideal
+%p
+  %b Other logistics:
+  = @offering.other_logistics
+%p
+  %b Presenter bio:
+  = @offering.presenter_bio
+%p
+  %b Creator:
+  = @offering.creator_id
+
+= link_to 'Edit', edit_offering_path(@offering)
+\|
+= link_to 'Back', offerings_path

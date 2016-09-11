@@ -23,7 +23,8 @@
       .large-6.medium-6.small-12.columns
         %h4
           Rounds&nbsp;
-          %sup= link_to image_tag('plus.png', size: 12), new_game_round_path(@game)
+          - if @game.persisted?
+            %sup= link_to image_tag('plus.png', size: 12), new_game_round_path(@game)
         = render @game.rounds
       .large-6.medium-6.small-12.columns
         %h4
