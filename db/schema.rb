@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160911143901) do
+ActiveRecord::Schema.define(version: 20160911180918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20160911143901) do
     t.boolean  "main",             default: false
     t.boolean  "active",           default: true
     t.text     "haiku"
+    t.string   "initials"
   end
 
   create_table "games", force: :cascade do |t|

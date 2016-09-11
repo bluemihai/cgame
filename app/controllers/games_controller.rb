@@ -22,6 +22,7 @@ class GamesController < ApplicationController
 
     respond_to do |format|
       if @game.save
+        @game.rounds.create(order: 1)
         format.html { redirect_to @game, notice: 'Game was successfully created.' }
         format.json { render :show, status: :created, location: @game }
       else

@@ -3,6 +3,7 @@
 %table#activities-table.compact
   %thead
     %tr
+      %th
       %th Name
       %th.text-center Main?
       %th.text-center Active?
@@ -14,6 +15,7 @@
   %tbody
     - @activities.each do |activity|
       %tr
+        %td= activity.initials
         %td= link_to activity.name, activity
         %td.text-center= show_bool(activity.main?)
         %td.text-center= show_bool(activity.active?)

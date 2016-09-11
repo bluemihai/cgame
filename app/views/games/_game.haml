@@ -1,16 +1,14 @@
-.large-3.medium-3.small-6.columns
-  = link_to default_time(game.starting), game
-.large-3.medium-3.small-6.columns
-  at&nbsp;
-  = link_to game.location.try(:name), game.location
-.large-2.medium-2.small-46.columns
-  Host:&nbsp;
-  = game.host.try(:first_last_initial)
-.large-4.medium-4.small-6.columns
-  %span= link_to 'RSVP', game.facebook_event_url
-  - if host_or_admin?
-    \—
-    %span.admin-only= link_to 'Edit', edit_game_path(game)
-    \—
-    %span.admin-only= link_to 'Destroy', game, :method => :delete, :data => { :confirm => 'Are you sure?' }
-%hr
+%tr
+  %td.text-center
+    %div= link_to game.starting.strftime("%_m/%_d"), game
+    %div= link_to game.starting.strftime("%a"), game
+  %td= link_to game.location.try(:name), game.location
+  %td.text-center= game.hosts
+  %td.text-center= link_to game.users.size, edit_game_path(game)
+  %td.text-center
+    = game.rounds.map {|round| render 'rounds/tiny', round: round}.join('—').html_safe
+  %td
+    %span= link_to 'RSVP', game.facebook_event_url
+    - if host_or_admin?
+      .left-5px.admin-only= link_to image_tag('settings.png', size: 12), edit_game_path(game)
+      .left-5px.admin-only= link_to image_tag('x.png', size: 12), game, method: :delete, data: CONF

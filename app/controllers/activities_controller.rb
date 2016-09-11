@@ -3,11 +3,11 @@ class ActivitiesController < ApplicationController
   # before_action :admin_only, except: [:index, :menu, :show]
 
   def index
-    @activities = Activity.non_wild_card.shuffle
+    @activities = Activity.main
   end
 
   def wildcards
-    @activities = Activity.wild_card
+    @activities = Activity.wc
   end
 
   def menu
@@ -65,6 +65,6 @@ class ActivitiesController < ApplicationController
 
     def activity_params
       params.require(:activity).permit(:name, :description, :wild_card_weight,
-        :image_url, :main, :active, :haiku)
+        :image_url, :main, :active, :haiku, :initials)
     end
 end

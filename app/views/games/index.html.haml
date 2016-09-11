@@ -1,6 +1,15 @@
 %h2 Upcoming C-Games
+
 - if host_or_admin?
-  = render @games
+  %table#upcoming-games.compact
+    %thead
+      %th.text-center Date
+      %th Location
+      %th.text-center Hosting
+      %th.text-center RSVPS
+      %th.text-center
+      %th Actions
+    = render @games
 - else
   %p Thank you for your interest!
 
@@ -12,7 +21,16 @@
     = User.host_or_admin.map {|host| mail_to(host.email, host.name) }.join(', ').html_safe
 
 %h2 Past C-Games
-- @past.each do |game|
-  = render 'games/past', game: game
-
+%table#past-games.compact
+  %thead
+    %th.text-center Date
+    %th Location
+    %th.text-center Hosted
+    %th.text-center Attended
+    %th.text-center Groups
+    %th Actions
+  = render @past
+/ - @past.each do |game|
+/   = render 'games/past', game: game
+/
 .padding

@@ -32,7 +32,7 @@ class GroupsController < ApplicationController
   def update
     respond_to do |format|
       if @group.update(group_params)
-        format.html { redirect_to edit_game_path(@group.round.game), notice: 'Group was successfully updated.' }
+        format.html { redirect_to edit_game_path(@group.game), notice: 'Group was successfully updated.' }
         format.json { render :show, status: :ok, location: @group }
       else
         format.html { render :edit }

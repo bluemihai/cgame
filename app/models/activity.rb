@@ -4,11 +4,18 @@ class Activity < ApplicationRecord
   before_create :randomize_id
 
   scope :wild_card, -> { where('wild_card_weight > 0').where(active: true) }
+  scope :wild_card_all, -> { where('wild_card_weight > 0') }
   scope :non_wild_card, -> { where(wild_card_weight: 0).where(active: true) }
+  scope :non_wild_card_all, -> { where(wild_card_weight: 0) }
   scope :main, -> { where(main: true) }
+  scope :wc, -> { where(main: false) }
+
+  def tiny
+    main ? initials : 'WC'
+  end
 
   def name_with_wc
-    wild_card_weight > 0 ? "WC => #{name}" : name
+    main ? name : "WC => #{name}"
   end
 
   def id_obscured

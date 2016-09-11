@@ -12,6 +12,13 @@ class Game < ApplicationRecord
   has_many :rsvps
   has_many :users, through: :rsvps
 
+  def groups
+    rounds.map(&:groups).flatten
+  end
+
+  def hosts
+    [host, cohost].compact.map(&:first_last_initial).join(', ')
+  end
 
   def name
     "#{starting.strftime('%a %b-%d')} at #{location.name}"
@@ -34,7 +41,7 @@ class Game < ApplicationRecord
   end
 
   def self.past
-    select{ |game| game.starting < Time.zone.now }.sort_by(&:starting)
+    select{ |game| game.starting < Time.zone.now }.sort_by(&:starting).reverse
   end
 
   private

@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
 
   def first_last_initial
     names = name.split(' ')
-    "#{names[0]} #{names[1][0]}."
+    "#{names[0]} #{names[1][0]}"
   end
 
   def set_default_role

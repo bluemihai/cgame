@@ -15,7 +15,8 @@
         Participants
         - if @group.persisted?
           %sup= link_to image_tag('plus.png', size: 12), new_user_path(group_id: @group.id)
-      .form-checkboxes= f.association :participations, collection: @group.users, as: :check_boxes, label: false
+      - if @group.persisted?
+        .form-checkboxes= f.association :participants, collection: @group.game.users.order(:name), as: :check_boxes, label: false
     - if @group.wild_card
       .large-4.medium-6.small-12.columns
         = f.input :wc_interpretation, as: :text, input_html: { rows: 4 }, label: 'How did the group interpret this WC?'

@@ -1,8 +1,9 @@
 FactoryGirl.define do
   factory :group do
-    round_id 1
+    association :round, factory: :round
+    association :activity, factory: :activity
     activity_id 1
-    wc_id 1
+    wild_card false
     wc_interpretation "MyString"
     wc_curation "MyString"
   end

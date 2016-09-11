@@ -20,7 +20,8 @@ class RoundsController < ApplicationController
 
     respond_to do |format|
       if @round.save
-        format.html { redirect_to edit_game_path(@round.game), notice: 'Round was successfully created.' }
+        group = @round.groups.create!(round: @round)
+        format.html { redirect_to edit_group_path(group), notice: 'Round was successfully created.' }
         format.json { render :show, status: :created, location: @round }
       else
         format.html { render :new }

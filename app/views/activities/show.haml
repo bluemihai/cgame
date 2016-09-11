@@ -1,14 +1,15 @@
 .large-6.medium-12.small-12.columns
-  %h2= @activity.name
+  %h2
+    = "#{@activity.name} (#{@activity.initials})"
+    - if host_or_admin?
+      %sup= link_to image_tag('settings.png', size: 12), edit_activity_path(@activity)
+    
 
   %p
     = image_tag(@activity.image_url) if @activity.image_url
   %h3.activity-description= simpler_format(@activity.haiku)
   %p
   %p
-  - if host_or_admin?
-    .admin-only
-      = link_to '(Edit)', edit_activity_path(@activity), class: 'button-xs'
   %p
   %p
 

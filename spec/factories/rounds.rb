@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :round do
-    game_id 1
+    association :game, factory: :game
     order 1
     method_split "MyString"
   end
