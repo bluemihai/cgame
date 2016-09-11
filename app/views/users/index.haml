@@ -4,14 +4,13 @@
       Users
       - if host_or_admin?
         %sup= link_to image_tag('plus.png', size: 12), new_user_path
-    .column
-      %table#users-table.compact
-        %thead
-          %th Name
-          %th.text-center Games
-          %th Social
-          - if host_or_admin?
-            %th.admin-only Admin
-        %tbody
-          - @users.order(:id).each do |user|
-            %tr= render user
+    %table#users-table.compact
+      %thead
+        %th Name
+        %th.text-center Games
+        %th Social
+        - if host_or_admin?
+          %th.admin-only Admin
+      %tbody
+        - @users.order(:id).each do |user|
+          %tr= render user

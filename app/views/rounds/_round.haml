@@ -2,5 +2,5 @@
   .order= round.order
   .groups-container
     = render round.groups
-    .group= link_to image_tag('plus.png', size: 12), new_game_round_group_path(round.game, round)
+    = link_to image_tag('plus.png', size: 12), new_game_round_group_path(round.game, round)
 %br

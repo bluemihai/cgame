@@ -15,6 +15,15 @@
  *= require_self
  */
 
+a:visited.button {
+  color: white;
+}
+
+button {
+  a:visited {
+    color: white;
+  }
+}
 .datetime {
   width: auto;
   select {
@@ -59,3 +68,16 @@ sub {
   column-count: 3;
 }
 
+.form-checkboxes {
+  label {
+    font-size: 80%;
+    input {
+      margin: 0px 4px 4px 0px;
+    }
+  }
+}
+
+.inline-multi-button {
+  display: inline;
+  margin-right: 5px;
+}

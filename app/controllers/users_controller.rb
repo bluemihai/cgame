@@ -11,8 +11,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(secure_params)
-
+    @user = User.new(user_params)
     if @user.save
       redirect_to users_path, notice: "User created."
     else
@@ -35,7 +34,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(secure_params)
+    if @user.update_attributes(user_params)
       redirect_back(fallback_location: root_path, notice: "User updated.")
     else
       redirect_back(fallback_location: root_path, notice: "Unable to update user.")
@@ -56,12 +55,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def secure_params
-    if @user == current_user
-      params.require(:user).permit(:name, :email, :prefs, :facebook_id)
-    elsif (current_user.admin? || current_user.host?)
-      params.require(:user).permit(:name, :email, :prefs, :facebook_id, :role)
-    end
+  def user_params
+    params.require(:user).permit(:name, :email, :prefs, :facebook_id, :group_id,
+      :game_id, :role)
   end
 
 end

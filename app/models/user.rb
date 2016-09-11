@@ -5,7 +5,22 @@ class User < ActiveRecord::Base
   has_many :rsvps
   has_many :games, through: :rsvps
 
+  validates :name, presence: true, uniqueness: true
+
   scope :host_or_admin, -> { where('role > 0') }
+
+  def add_to_group(grp_id)
+    g = Group.find_by_id(grp_id)
+    g.users << self unless g.nil?
+    add_to_game(g.game.id)
+    g
+  end
+
+  def add_to_game(gm_id)
+    g = Game.find_by_id(gm_id)
+    g.users << self unless g.nil?
+    g
+  end
 
   def facebook_url
     "http://facebook.com/#{facebook_id}"
