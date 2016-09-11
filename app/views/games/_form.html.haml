@@ -32,10 +32,10 @@
       %hr
       .large-6.medium-12.small-12.columns
         %h4
-          Attendees&nbsp;
+          = "#{@game.users.size} Attendees "
           %sup= link_to image_tag('plus.png', size: 12), new_user_path
         .form-checkboxes.text-columns-3
-          = f.association :users, as: :check_boxes, collection: User.order(:name) - [User.find_by(name: 'Co-Created'), User.find_by(name: 'Example User')], label: false
+          = f.association :users, as: :check_boxes, collection: User.order(:name), label: false
       .large-6.medium-12.small-12.columns
         %h4 Host Recap
         = f.input :review, input_html: { rows: 12}, label: false
