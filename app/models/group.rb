@@ -2,6 +2,7 @@ class Group < ApplicationRecord
   belongs_to :round
   belongs_to :activity
   has_many :participations
+  belongs_to :instigator, class_name: 'User', required: false
 
   def game
     return nil if round.nil?
