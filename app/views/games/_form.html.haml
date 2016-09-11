@@ -20,15 +20,11 @@
       %hr
     #review
       %h2 Review
-      .large-6.medium-6.small-12.columns
-        %h4
-          Rounds&nbsp;
-          - if @game.persisted?
-            %sup= link_to image_tag('plus.png', size: 12), new_round_path(game_id: @game.id)
-        = render @game.rounds
-      .large-6.medium-6.small-12.columns
-        %h4
-          Groups&nbsp;
+      %h4
+        Rounds&nbsp;
+        - if @game.persisted?
+          %sup= link_to image_tag('plus.png', size: 12), new_round_path(game_id: @game.id)
+      = render @game.rounds
       %hr
       .large-6.medium-12.small-12.columns
         %h4

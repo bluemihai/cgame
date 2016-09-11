@@ -81,3 +81,12 @@ sub {
   display: inline;
   margin-right: 5px;
 }
+
+.vertical-actions {
+  display: table-cell;
+}
+
+.vertical-action {
+  display: block;
+  background-color: yellow;
+}

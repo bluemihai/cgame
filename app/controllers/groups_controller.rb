@@ -42,9 +42,10 @@ class GroupsController < ApplicationController
   end
 
   def destroy
+    game = @group.game
     @group.destroy
     respond_to do |format|
-      format.html { redirect_to groups_url, notice: 'Group was successfully destroyed.' }
+      format.html { redirect_to edit_game_path(game), notice: 'Group was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
