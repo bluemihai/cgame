@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get '/menu' => 'activities#menu', as: :menu
   get '/w_c' => 'visitors#wildcard', as: :wildcard
   get '/festival' => 'visitors#festival'
+  get '/welcome' => 'visitors#welcome'
+  get '/values' => 'visitors#values'
   get '/auth/:provider/callback' => 'sessions#create'
   get '/signin' => 'sessions#new', :as => :signin
   get '/signout' => 'sessions#destroy', :as => :signout

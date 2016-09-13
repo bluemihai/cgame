@@ -8,6 +8,7 @@ class Activity < ApplicationRecord
   scope :non_wild_card, -> { where(wild_card_weight: 0).where(active: true) }
   scope :non_wild_card_all, -> { where(wild_card_weight: 0) }
   scope :main, -> { where(main: true) }
+  scope :active, -> { where(active: true) }
   scope :wc, -> { where(main: false) }
 
   def tiny

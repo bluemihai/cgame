@@ -11,7 +11,7 @@ class ActivitiesController < ApplicationController
   end
 
   def menu
-    @activities = Activity.main.shuffle
+    @activities = Activity.main.active.shuffle
   end
 
   def show

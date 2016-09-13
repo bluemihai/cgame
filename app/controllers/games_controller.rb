@@ -22,8 +22,10 @@ class GamesController < ApplicationController
 
     respond_to do |format|
       if @game.save
-        @game.rounds.create(order: 1)
-        format.html { redirect_to @game, notice: 'Game was successfully created.' }
+        (1..3).each do |idx|
+          @game.rounds.create(order: idx)
+        end
+        format.html { redirect_to @game, notice: 'Game successfully created.' }
         format.json { render :show, status: :created, location: @game }
       else
         format.html { render :new }

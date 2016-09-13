@@ -3,10 +3,10 @@
   #left-side
     .upper-left.text-center= image_tag("dec-#{dec}-upper.png", width: 200)
     .content
-      .cgame-est= image_tag('cgame_est.png')
+      .cgame-est= link_to image_tag('cgame_est.png'), welcome_path
       .values
-        - VALUES.each do |value|
-          .row= value
+        - VALUES.each do |k, v|
+          .row= link_to k, values_path, title: v
     .lower-left.text-center= image_tag("dec-#{dec}-lower.png", width: 200)
 
   #right-side

@@ -2,8 +2,16 @@
 
 - unless @user.games.empty?
   %h4= pluralize(@user.games.size, 'C-Game')
-  - @user.games.each do |game|
-    = render 'games/past', game: game
+
+%table#past-games.compact
+  %thead
+    %th.text-center Date
+    %th Location
+    %th.text-center Hosting
+    %th.text-center RSVPS
+    %th.text-center
+    %th Actions
+  = render @user.games
   %hr
 
   .large-3.medium-3.small-6.columns= link_to 'Edit', edit_user_path(@user), class: 'button-xs'
