@@ -3,8 +3,10 @@
 - if host_or_admin?
   %table#upcoming-games.compact
     %thead
-      %th.text-center Date
-      %th Location
+      %th Date
+      %th City
+      %th Name
+      %th Status
       %th.text-center Hosting
       %th.text-center RSVPS
       %th.text-center
@@ -24,7 +26,9 @@
 %table#past-games.compact
   %thead
     %th.text-center Date
-    %th Location
+    %th City
+    %th Name
+    %th Status
     %th.text-center Hosted
     %th.text-center Attended
     %th.text-center Groups

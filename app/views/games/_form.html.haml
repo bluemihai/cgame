@@ -7,8 +7,10 @@
       .large-4.medium-4.small-12.columns= f.association :host, collection: User.host_or_admin
       .large-4.medium-4.small-12.columns= f.association :cohost, collection: User.host_or_admin
       .large-4.medium-4.small-12.columns= f.association :location
+      .large-4.medium-4.small-12.columns= f.input :name
+      .large-4.medium-4.small-12.columns= f.input :status, collection: Game.statuses.keys()
       .large-4.medium-4.small-12.columns= f.input :facebook_event_url
-      .large-4.medium-4.small-12.columns= f.input :decoration, collection: 'a'..'i'
+      .large-4.medium-4.small-12.columns= f.input :decoration, collection: 'a'..'i', selected: @game.decoration || ('a'..'i').to_a.sample
       .large-4.medium-4.small-12.columns= f.input :color
       .large-4.medium-4.small-12.columns
         %h4 Build Menu

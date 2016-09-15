@@ -12,6 +12,12 @@ class Game < ApplicationRecord
   has_many :rsvps
   has_many :users, through: :rsvps
 
+  enum status: [:idea, :possible, :likely, :confirmed, :completed]
+
+  def city
+    location.try(:city)
+  end
+
   def groups
     rounds.map(&:groups).flatten
   end
@@ -20,8 +26,8 @@ class Game < ApplicationRecord
     [host, cohost].compact.map(&:first_last_initial).join(', ')
   end
 
-  def name
-    "#{starting.strftime('%a %b-%d')} at #{location.name}"
+  def safe_name
+    name || "#{starting.strftime('%a %b-%d')} at #{location.name}"
   end
 
   def self.rand_decoration

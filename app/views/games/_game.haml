@@ -2,7 +2,9 @@
   %td.text-center
     %div= link_to game.starting.strftime("%_m/%_d"), game
     %div= link_to game.starting.strftime("%a"), game
-  %td= link_to game.location.try(:name), game.location
+  %td= link_to game.city, game.location
+  %td= game.safe_name
+  %td= game.status.try(:titleize)
   %td.text-center= game.hosts
   %td.text-center= link_to game.users.size, edit_game_path(game)
   %td.text-center
