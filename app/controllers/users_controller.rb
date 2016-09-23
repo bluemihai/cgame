@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to users_path, notice: "User created."
+      redirect_to new_user_path, notice: "User created.  More?"
     else
       render :new
     end
@@ -57,7 +57,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :prefs, :facebook_id, :group_id,
-      :game_id, :role)
+      :game_id, :role, :city, :area)
   end
 
 end

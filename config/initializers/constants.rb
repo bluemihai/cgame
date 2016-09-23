@@ -8,3 +8,13 @@ VALUES = {
 
 EST = 2015
 CONF = { confirm: 'Are you sure?' }
+
+AREAS = [
+  'SF Bay',
+  'Austin',
+  'New York',
+  'Boulder',
+  'Paris',
+  'New Mexico',
+  'California'
+]
