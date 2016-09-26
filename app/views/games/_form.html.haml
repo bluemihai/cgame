@@ -14,7 +14,7 @@
       .large-4.medium-4.small-12.columns= f.input :color
       .large-4.medium-4.small-12.columns
         %h4 Build Menu
-        .form-checkboxes= f.association :activities, as: :check_boxes, collection: Activity.non_wild_card.order(:name), label: false
+        .form-checkboxes= f.association :activities, as: :check_boxes, collection: Activity.main.order(:name), label: false
       .large-8.medium-8.small-12.columns
         = f.input :starting, minute_step: 30
         = f.input :ending, minute_step: 30
