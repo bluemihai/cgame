@@ -43,11 +43,11 @@ class Game < ApplicationRecord
   end
 
   def self.upcoming
-    select{ |game| game.starting > Time.zone.now }.sort_by(&:starting)
+    select{ |game| game.starting.to_date >= Time.zone.now.to_date }.sort_by(&:starting)
   end
 
   def self.past
-    select{ |game| game.starting < Time.zone.now }.sort_by(&:starting).reverse
+    select{ |game| game.starting.to_date < Time.zone.now.to_date }.sort_by(&:starting).reverse
   end
 
   private
