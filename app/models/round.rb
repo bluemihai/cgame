@@ -11,6 +11,6 @@ class Round < ApplicationRecord
   end
 
   def name
-    "Round #{order} for #{game.safe_name}"
+    "Round #{order} for #{game.try(:safe_name)}"
   end
 end
