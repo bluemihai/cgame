@@ -1,6 +1,11 @@
 class VisitorsController < ApplicationController
+  def circlemeday
+  end
+
+  def jordan
+  end
+
   def welcome
-    
   end
 
   def festival

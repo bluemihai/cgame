@@ -1,0 +1,43 @@
+%h2 Jordan Weekend
+
+%form{:action => "https://www.paypal.com/cgi-bin/webscr", :method => "post", :target => "_top"}
+  %input{:name => "cmd", :type => "hidden", :value => "_s-xclick"}/
+  %input{:name => "hosted_button_id", :type => "hidden", :value => "QUGP8Z74ZPM2J"}/
+  %table
+    %tr
+      %td
+        %input{:name => "on0", :type => "hidden", :value => "Roles"}>/
+        Roles
+    %tr
+      %td
+        %select{:name => "os0"}
+          %option{:value => "Circlee"} Circlee $200.00 USD
+          %option{:value => "Observer"} Observer $75.00 USD
+    %tr
+      %td
+        %input{:name => "on1", :type => "hidden", :value => "Circling Experience"}>/
+        Circling Experience
+    %tr
+      %td
+        %select{:name => "os1"}
+          %option{:value => "None or very little"} None or very little
+          %option{:value => "More than ten circles"} More than ten circles
+          %option{:value => "Hundreds of circles"} Hundreds of circles
+          %option{:value => "Thousands of circles"} Thousands of circles
+    %tr
+      %td
+        %input{:name => "on2", :type => "hidden", :value => "Phone Number"}>/
+        Phone Number
+    %tr
+      %td
+        %input{:maxlength => "200", :name => "os2", :type => "text"}/
+    %tr
+      %td
+        %input{:name => "on3", :type => "hidden", :value => "E-mail"}>/
+        E-mail
+    %tr
+      %td
+        %input{:maxlength => "200", :name => "os3", :type => "text"}/
+  %input{:name => "currency_code", :type => "hidden", :value => "USD"}/
+  %input{:alt => "PayPal - The safer, easier way to pay online!", :border => "0", :name => "submit", :src => "https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif", :type => "image"}/
+  %img{:alt => "", :border => "0", :height => "1", :src => "https://www.paypalobjects.com/en_US/i/scr/pixel.gif", :width => "1"}/

@@ -1,0 +1,65 @@
+%h2 Circle Me Day
+
+.large-8.medium-8.small-12.columns
+  %p
+    %h4 Come play with us for a day!
+    We have a beautiful space, perfect for a small, intimate gathering.
+    %br
+    We have a community of people more or less committed to circling.
+    %br
+    We have the time.
+    %br
+    We have the love.
+
+  %p
+    %h4 Vision
+    %li A small, intimate group of people with shared values
+    %li We deepen our relationship to circling through practice and debrief
+    %li Each Circlee gets a 45-minute circle with Guy
+    %li A great place to invite friends you'd like to introduce to circling
+    %li A couple of Observers will be a part of the group, without getting circled
+
+  %p
+    %h4 Logistics
+    %li 10am-6pm schedule, with a 1.5-hour lunch break
+    %li We are a few blocks away from Downtown Berkeley BART
+    %li Parking is not free on Saturdays — there are a couple of paid lots nearby
+    %li Bring your own food, or there are lots of restaurants nearby
+    %li Please register below.
+  
+.large-4.medium-4.small-12.columns
+  %form{:action => "https://www.paypal.com/cgi-bin/webscr", :method => "post", :target => "_top"}
+    %input{:name => "cmd", :type => "hidden", :value => "_s-xclick"}/
+    %input{:name => "hosted_button_id", :type => "hidden", :value => "FZ7KWRFTNE574"}/
+    %table
+      %tr
+        %td
+          %input{:name => "on0", :type => "hidden", :value => "Roles"}>/
+          Roles
+      %tr
+        %td
+          %select{:name => "os0"}
+            %option{:value => "Nov-19 Circlee"} Nov-19 Circlee $200.00 USD
+            %option{:value => "Nov-19 Observer"} Nov-19 Observer $75.00 USD
+            %option{:value => "Dec-17 Circlee"} Dec-17 Circlee $200.00 USD
+            %option{:value => "Dec-17 Observer"} Dec-17 Observer $75.00 USD
+            %option{:value => "Jan-7 Circlee"} Jan-7 Circlee $200.00 USD
+            %option{:value => "Jan-7 Observer"} Jan-7 Observer $75.00 USD
+      %tr
+        %td
+          %input{:name => "on1", :type => "hidden", :value => "Phone Number"}>/
+          Phone Number
+      %tr
+        %td
+          %input{:maxlength => "200", :name => "os1", :type => "text"}/
+      %tr
+        %td
+          %input{:name => "on2", :type => "hidden", :value => "E-mail"}>/
+          E-mail
+      %tr
+        %td
+          %input{:maxlength => "200", :name => "os2", :type => "text"}/
+    %input{:name => "currency_code", :type => "hidden", :value => "USD"}/
+    %input{:alt => "PayPal - The safer, easier way to pay online!", :border => "0", :name => "submit", :src => "https://www.paypalobjects.com/en_US/i/btn/btn_buynow_SM.gif", :type => "image"}/
+    %img{:alt => "", :border => "0", :height => "1", :src => "https://www.paypalobjects.com/en_US/i/scr/pixel.gif", :width => "1"}/
+%hr
