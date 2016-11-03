@@ -20,7 +20,7 @@
     %br
     Please request an invite from one of our hosts:
     %br
-    = User.host_or_admin.map {|host| mail_to(host.email, host.name) }.join(', ').html_safe
+    = User.admin.map {|host| mail_to(host.email, host.name) }.join(', ').html_safe
 
 %h2 Past C-Games
 %table#past-games.compact

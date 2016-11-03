@@ -5,11 +5,11 @@
     .large-6.medium-6.small-12.columns= f.input :name, autofocus: true
     - if host_or_admin?
       .large-6.medium-6.small-12.columns
-        = f.input :role, collection: User.roles.keys, selected: User.roles.keys[@user.role.to_i]
+        = f.input :role, collection: User.roles.keys, selected: @user.role || User.roles.keys[@user.role.to_i]
     .large-6.medium-6.small-12.columns= f.input :city
     .large-6.medium-6.small-12.columns= f.input :area, collection: AREAS
     .large-6.medium-6.small-12.columns= f.input :email
-    .large-6.medium-6.small-12.columns= f.input :facebook_id
+    .large-6.medium-6.small-12.columns= f.input :facebook_id, label: 'Facebook ID'
 
   .clear-both
   %hr
