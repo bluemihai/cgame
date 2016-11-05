@@ -4,21 +4,22 @@
   .form-inputs
     #preparation
       %h2 Preparation
-      .large-4.medium-4.small-12.columns= f.association :host, collection: User.host_or_admin
-      .large-4.medium-4.small-12.columns= f.association :cohost, collection: User.host_or_admin
-      .large-4.medium-4.small-12.columns= f.association :location
-      .large-4.medium-4.small-12.columns= f.input :name
-      .large-4.medium-4.small-12.columns= f.input :status, collection: Game.statuses.keys()
-      .large-4.medium-4.small-12.columns= f.input :facebook_event_url
-      .large-4.medium-4.small-12.columns= f.input :decoration, collection: 'a'..'i', selected: @game.decoration || ('a'..'i').to_a.sample
-      .large-4.medium-4.small-12.columns= f.input :color
-      .large-4.medium-4.small-12.columns
+      .large-9.medium-12.small-12.columns
+        .large-3.medium-3.small-12.columns= f.association :host, collection: User.host_or_admin
+        .large-3.medium-3.small-12.columns= f.association :cohost, collection: User.host_or_admin
+        .large-3.medium-3.small-12.columns= f.input :name
+        .large-3.medium-3.small-12.columns= f.association :location
+        .large-3.medium-3.small-12.columns= f.input :status, collection: Game.statuses.keys()
+        .large-3.medium-3.small-12.columns= f.input :facebook_event_url
+        .large-3.medium-3.small-12.columns= f.input :decoration, collection: 'a'..'i', selected: @game.decoration || ('a'..'i').to_a.sample
+        .large-3.medium-3.small-12.columns= f.input :color
+        .large-6.medium-6.small-12.columns= f.input :starting, minute_step: 30
+        .large-6.medium-6.small-12.columns= f.input :ending, minute_step: 30
+      .large-3.medium-4.small-12.columns
         %h4 Build Menu
         .form-checkboxes= f.association :activities, as: :check_boxes, collection: Activity.main.order(:name), label: false
-      .large-8.medium-8.small-12.columns
-        = f.input :starting, minute_step: 30
-        = f.input :ending, minute_step: 30
-        = f.button :submit, 'Save'
+      %hr
+      = f.button :submit, 'Save'
       %hr
     #review
       %h2 Review
@@ -26,7 +27,7 @@
         Rounds&nbsp;
         - if @game.persisted?
           %sup= link_to image_tag('plus.png', size: 12), new_round_path(game_id: @game.id)
-      = render @game.rounds
+      = render @game.rounds.order(:order)
       %hr
       .large-6.medium-12.small-12.columns
         %h4

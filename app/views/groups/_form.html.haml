@@ -28,7 +28,7 @@
 
   %hr
   .form-actions
-    .inline-multi-button= f.button :submit, 'Save Me', data: { disable_with: 'Save Disabled' }
+    .inline-multi-button= f.button :submit, 'Save', data: { disable_with: 'Save (Disabled)' }
     - if @group.persisted?
       .inline-multi-button= link_to 'Edit Round', edit_round_path(@group.round), class: 'button'
       .inline-multi-button= link_to 'Edit Game', edit_game_path(@group.game), class: 'button'

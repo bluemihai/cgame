@@ -18,7 +18,7 @@
   %p
     C-Games are currently private, invite-only events.
     %br
-    Please request an invite from one of our hosts:
+    Please request an invite from a C-Game partner:
     %br
     = User.admin.map {|host| mail_to(host.email, host.name) }.join(', ').html_safe
 
