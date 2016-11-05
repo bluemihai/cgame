@@ -15,9 +15,9 @@
         Participants
         - if @group.persisted?
           %sup= link_to image_tag('plus.png', size: 12), new_user_path(group_id: @group.id)
-        #select-all= button_to 'Select All'
+        %button#select-all.button-small Select All
       - if @group.persisted?
-        #form-checkboxes= f.association :participants, collection: @group.game.users.order(:name), as: :check_boxes, label: false
+        .form-checkboxes= f.association :participants, collection: @group.game.users.order(:name), as: :check_boxes, label: false
     - if @group.wild_card
       .large-4.medium-6.small-12.columns
         = f.input :wc_interpretation, as: :text, input_html: { rows: 4 }, label: 'How did the group interpret this WC?'
@@ -28,7 +28,7 @@
 
   %hr
   .form-actions
-    .inline-multi-button= f.button :submit, 'Save'
+    .inline-multi-button= f.button :submit, 'Save Me', data: { disable_with: 'Save Disabled' }
     - if @group.persisted?
       .inline-multi-button= link_to 'Edit Round', edit_round_path(@group.round), class: 'button'
       .inline-multi-button= link_to 'Edit Game', edit_game_path(@group.game), class: 'button'
