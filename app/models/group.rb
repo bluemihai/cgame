@@ -9,4 +9,10 @@ class Group < ApplicationRecord
     return nil if round.nil?
     round.game
   end
+
+  def starting
+    return nil if game.nil?
+    game.starting
+  end
+
 end

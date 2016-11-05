@@ -11,6 +11,7 @@ class Game < ApplicationRecord
 
   has_many :rsvps
   has_many :users, through: :rsvps
+  has_many :groups
 
   enum status: [:idea, :possible, :likely, :confirmed, :completed]
 
