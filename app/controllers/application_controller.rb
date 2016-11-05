@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   helper_method :correct_user?
   helper_method :host_or_admin?
   helper_method :admin?
+  helper_method :admin_only!
 
   private
     def host_or_admin?
@@ -45,7 +46,7 @@ class ApplicationController < ActionController::Base
 
     def admin_only!
       if !current_user || !host_or_admin?
-        redirect_to root_url, :alert => 'Only hosts or admins have access to this page.'
+        redirect_back(fallback_location: root_path, :alert => "Access denied.")
       end
     end
 

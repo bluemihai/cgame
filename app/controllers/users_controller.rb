@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :admin_only, :except => :show
+  before_action :admin_only!, :except => :show
 
   def index
     @users = User.order(:name)
@@ -48,12 +48,6 @@ class UsersController < ApplicationController
   end
 
   private
-
-  def admin_only
-    unless host_or_admin?
-      redirect_back(fallback_location: root_path, :alert => "Access denied.")
-    end
-  end
 
   def user_params
     params.require(:user).permit(:name, :email, :prefs, :facebook_id, :group_id,

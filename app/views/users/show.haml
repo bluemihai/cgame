@@ -11,7 +11,7 @@
     %th.text-center RSVPS
     %th.text-center
     %th Actions
-  = render @user.games
+  = render @user.games.order('starting DESC')
   %hr
 
   .large-3.medium-3.small-6.columns= link_to 'Edit', edit_user_path(@user), class: 'button-xs'
