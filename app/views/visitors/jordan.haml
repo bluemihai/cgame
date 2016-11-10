@@ -1,43 +1,42 @@
 %h2 Jordan Weekend
 
-%form{:action => "https://www.paypal.com/cgi-bin/webscr", :method => "post", :target => "_top"}
+%form{:action => "https://www.paypal.com/cgi-bin/webscr", :method => "post", :target => "paypal"}
   %input{:name => "cmd", :type => "hidden", :value => "_s-xclick"}/
-  %input{:name => "hosted_button_id", :type => "hidden", :value => "QUGP8Z74ZPM2J"}/
+  %input{:name => "hosted_button_id", :type => "hidden", :value => "FLKFAGWZUDFDA"}/
   %table
     %tr
       %td
-        %input{:name => "on0", :type => "hidden", :value => "Roles"}>/
-        Roles
+        %input{:name => "on0", :type => "hidden", :value => "Ticket Types"}>/
+        Ticket Types
     %tr
       %td
         %select{:name => "os0"}
-          %option{:value => "Circlee"} Circlee $200.00 USD
-          %option{:value => "Observer"} Observer $75.00 USD
+          %option{:value => "Early Bird"} Early Bird $425.00 USD
+          %option{:value => "Regular"} Regular $495.00 USD
     %tr
       %td
-        %input{:name => "on1", :type => "hidden", :value => "Circling Experience"}>/
-        Circling Experience
+        %input{:name => "on1", :type => "hidden", :value => "How you heard about this"}>/
+        How you heard about this
     %tr
       %td
         %select{:name => "os1"}
-          %option{:value => "None or very little"} None or very little
-          %option{:value => "More than ten circles"} More than ten circles
-          %option{:value => "Hundreds of circles"} Hundreds of circles
-          %option{:value => "Thousands of circles"} Thousands of circles
+          %option{:value => "Mihai"} Mihai
+          %option{:value => "Jordan / Circling Europe"} Jordan / Circling Europe
+          %option{:value => "Matt / AuthenticSF / Integral Center"} Matt / AuthenticSF / Integral Center
     %tr
       %td
-        %input{:name => "on2", :type => "hidden", :value => "Phone Number"}>/
-        Phone Number
+        %input{:name => "on2", :type => "hidden", :value => "Your name and city"}>/
+        Your name and city
     %tr
       %td
         %input{:maxlength => "200", :name => "os2", :type => "text"}/
     %tr
       %td
-        %input{:name => "on3", :type => "hidden", :value => "E-mail"}>/
-        E-mail
+        %input{:name => "on3", :type => "hidden", :value => "Your e-mail and phone #"}>/
+        Your e-mail and phone #
     %tr
       %td
         %input{:maxlength => "200", :name => "os3", :type => "text"}/
   %input{:name => "currency_code", :type => "hidden", :value => "USD"}/
-  %input{:alt => "PayPal - The safer, easier way to pay online!", :border => "0", :name => "submit", :src => "https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif", :type => "image"}/
+  %input{:alt => "PayPal - The safer, easier way to pay online!", :border => "0", :name => "submit", :src => "https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif", :type => "image"}/
   %img{:alt => "", :border => "0", :height => "1", :src => "https://www.paypalobjects.com/en_US/i/scr/pixel.gif", :width => "1"}/
