@@ -1,42 +1,78 @@
-%h2 Jordan Weekend
+%h2 Jordan NYE Circling Weekend in Berkeley
 
-%form{:action => "https://www.paypal.com/cgi-bin/webscr", :method => "post", :target => "paypal"}
-  %input{:name => "cmd", :type => "hidden", :value => "_s-xclick"}/
-  %input{:name => "hosted_button_id", :type => "hidden", :value => "FLKFAGWZUDFDA"}/
-  %table
-    %tr
-      %td
-        %input{:name => "on0", :type => "hidden", :value => "Ticket Types"}>/
-        Ticket Types
-    %tr
-      %td
-        %select{:name => "os0"}
-          %option{:value => "Early Bird"} Early Bird $425.00 USD
-          %option{:value => "Regular"} Regular $495.00 USD
-    %tr
-      %td
-        %input{:name => "on1", :type => "hidden", :value => "How you heard about this"}>/
-        How you heard about this
-    %tr
-      %td
-        %select{:name => "os1"}
-          %option{:value => "Mihai"} Mihai
-          %option{:value => "Jordan / Circling Europe"} Jordan / Circling Europe
-          %option{:value => "Matt / AuthenticSF / Integral Center"} Matt / AuthenticSF / Integral Center
-    %tr
-      %td
-        %input{:name => "on2", :type => "hidden", :value => "Your name and city"}>/
-        Your name and city
-    %tr
-      %td
-        %input{:maxlength => "200", :name => "os2", :type => "text"}/
-    %tr
-      %td
-        %input{:name => "on3", :type => "hidden", :value => "Your e-mail and phone #"}>/
-        Your e-mail and phone #
-    %tr
-      %td
-        %input{:maxlength => "200", :name => "os3", :type => "text"}/
-  %input{:name => "currency_code", :type => "hidden", :value => "USD"}/
-  %input{:alt => "PayPal - The safer, easier way to pay online!", :border => "0", :name => "submit", :src => "https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif", :type => "image"}/
-  %img{:alt => "", :border => "0", :height => "1", :src => "https://www.paypalobjects.com/en_US/i/scr/pixel.gif", :width => "1"}/
+- if @special_invite
+  .large-6.medium-6.small-12.columns
+    %p Congratulations!  You were invited to register for this workshop at a considerable discount.  10/10 discounted tickets are still available.
+
+    %form{:action => "https://www.paypal.com/cgi-bin/webscr", :method => "post", :target => "_top"}
+      %input{:name => "cmd", :type => "hidden", :value => "_s-xclick"}/
+      %input{:name => "hosted_button_id", :type => "hidden", :value => "PW436DHUT6M28"}/
+      %table
+        %tr
+          %td
+            %input{:name => "on0", :type => "hidden", :value => "Which special invite are you accepting?"}>/
+            Which special invite are you accepting?
+        %tr
+          %td
+            %select{:name => "os0"}
+              %option{:value => "SAS Discounted Ticket"} SAS Discounted Ticket $345.00 USD
+              %option{:value => "C-Games Regular Discounted Ticket"} C-Games Regular Discounted Ticket $345.00 USD
+        %tr
+          %td
+            %input{:name => "on1", :type => "hidden", :value => "Your name and city"}>/
+            Your name and city
+        %tr
+          %td
+            %input{:maxlength => "200", :name => "os1", :type => "text"}/
+        %tr
+          %td
+            %input{:name => "on2", :type => "hidden", :value => "Your e-mail and phone #"}>/
+            Your e-mail and phone #
+        %tr
+          %td
+            %input{:maxlength => "200", :name => "os2", :type => "text"}/
+      %input{:name => "currency_code", :type => "hidden", :value => "USD"}/
+      %input{:alt => "PayPal - The safer, easier way to pay online!", :border => "0", :name => "submit", :src => "https://www.paypalobjects.com/en_US/i/btn/btn_buynow_SM.gif", :type => "image"}/
+      %img{:alt => "", :border => "0", :height => "1", :src => "https://www.paypalobjects.com/en_US/i/scr/pixel.gif", :width => "1"}/
+  
+.large-6.medium-6.small-12.columns
+  %form{:action => "https://www.paypal.com/cgi-bin/webscr", :method => "post", :target => "paypal"}
+    %input{:name => "cmd", :type => "hidden", :value => "_s-xclick"}/
+    %input{:name => "hosted_button_id", :type => "hidden", :value => "FLKFAGWZUDFDA"}/
+    %table
+      %tr
+        %td
+          %input{:name => "on0", :type => "hidden", :value => "Ticket Types"}>/
+          Ticket Types
+      %tr
+        %td
+          %select{:name => "os0"}
+            %option{:value => "Early Bird"} Early Bird $425.00 USD
+            %option{:value => "Regular"} Regular $495.00 USD
+      %tr
+        %td
+          %input{:name => "on1", :type => "hidden", :value => "How you heard about this"}>/
+          How you heard about this
+      %tr
+        %td
+          %select{:name => "os1"}
+            %option{:value => "Mihai"} Mihai
+            %option{:value => "Jordan / Circling Europe"} Jordan / Circling Europe
+            %option{:value => "Matt / AuthenticSF / Integral Center"} Matt / AuthenticSF / Integral Center
+      %tr
+        %td
+          %input{:name => "on2", :type => "hidden", :value => "Your name and city"}>/
+          Your name and city
+      %tr
+        %td
+          %input{:maxlength => "200", :name => "os2", :type => "text"}/
+      %tr
+        %td
+          %input{:name => "on3", :type => "hidden", :value => "Your e-mail and phone #"}>/
+          Your e-mail and phone #
+      %tr
+        %td
+          %input{:maxlength => "200", :name => "os3", :type => "text"}/
+    %input{:name => "currency_code", :type => "hidden", :value => "USD"}/
+    %input{:alt => "PayPal - The safer, easier way to pay online!", :border => "0", :name => "submit", :src => "https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif", :type => "image"}/
+    %img{:alt => "", :border => "0", :height => "1", :src => "https://www.paypalobjects.com/en_US/i/scr/pixel.gif", :width => "1"}/

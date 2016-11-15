@@ -3,6 +3,7 @@ class VisitorsController < ApplicationController
   end
 
   def jordan
+    @special_invite = params.has_key?(:special_invite)
   end
 
   def welcome
