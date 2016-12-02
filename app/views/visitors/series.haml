@@ -8,19 +8,6 @@
   %span.action= link_to 'this Google Sheet', 'https://docs.google.com/spreadsheets/d/1A1TryQbEERs0uPI1KQSvsLEfgtNSkFDJKM64I3e4BJA/edit#gid=1249752017'
   %hr
 
-.large-6.medium-6.small-12.columns
-  %span Sundays&nbsp;
-  %span.action= link_to '(RSVP on Facebook)', 'https://www.facebook.com/events/1112190452227394/'
-  %br
-  Dec 4/11/18, Jan 8/15/22
-  %br
-.large-6.medium-6.small-12.columns
-  %span Thursdays&nbsp;
-  %span.action= link_to '(RSVP on Facebook)', 'https://www.facebook.com/events/1176337432455208/'
-  %br
-  Dec 8/15/22/29, Jan 5/12
-%hr
-
 .large-3.medium-3.small-12.columns
   %form{:action => "https://www.paypal.com/cgi-bin/webscr", :method => "post", :target => "_top"}
     %input{:name => "cmd", :type => "hidden", :value => "_s-xclick"}/
@@ -53,6 +40,19 @@
     %img{:alt => "", :border => "0", :height => "1", :src => "https://www.paypalobjects.com/en_US/i/scr/pixel.gif", :width => "1"}/
 
 .large-9.medium-9.small-12.columns
+  .row
+    .large-6.medium-6.small-12.columns
+      %span Sundays&nbsp;
+      %span.action= link_to '(RSVP on Facebook)', 'https://www.facebook.com/events/1112190452227394/'
+      %br
+      Dec 4/11/18, Jan 8/15/22
+      %br
+    .large-6.medium-6.small-12.columns
+      %span Thursdays&nbsp;
+      %span.action= link_to '(RSVP on Facebook)', 'https://www.facebook.com/events/1176337432455208/'
+      %br
+      Dec 8/15/22/29, Jan 5/12
+
   %p
     What will you experience in C-Games?
     %ul
