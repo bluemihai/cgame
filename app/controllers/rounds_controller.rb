@@ -43,9 +43,10 @@ class RoundsController < ApplicationController
   end
 
   def destroy
+    @game = @round.game
     @round.destroy
     respond_to do |format|
-      format.html { redirect_to rounds_url, notice: 'Round was successfully destroyed.' }
+      format.html { redirect_to edit_game_path(@game), notice: 'Round was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

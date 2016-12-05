@@ -14,6 +14,7 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    @available_player_ids = @group.available_players.map(&:id)
   end
 
   def create

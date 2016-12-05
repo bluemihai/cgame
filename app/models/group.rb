@@ -15,4 +15,10 @@ class Group < ApplicationRecord
     game.starting
   end
 
+  def available_players
+    other_groups_in_round = round.groups - [self]
+    participants_in_other_groups_in_round = other_groups_in_round.map(&:participants).flatten
+    game.players - participants_in_other_groups_in_round
+  end
+
 end

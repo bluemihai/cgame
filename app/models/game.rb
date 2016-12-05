@@ -15,6 +15,10 @@ class Game < ApplicationRecord
 
   enum status: [:idea, :possible, :likely, :confirmed, :completed]
 
+  def players
+    users
+  end
+
   def city
     location.try(:city)
   end

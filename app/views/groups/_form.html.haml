@@ -15,7 +15,8 @@
         Participants
         - if @group.persisted?
           %sup= link_to image_tag('plus.png', size: 12), new_user_path(group_id: @group.id)
-        %button#select-all.button-small Select All
+        %button#select-all.button-small{'data-available-ids' => @available_player_ids}
+          = "Select All #{@available_player_ids.size} Available"
       - if @group.persisted?
         .form-checkboxes= f.association :participants, collection: @group.game.users.order(:name), as: :check_boxes, label: false
     - if @group.wild_card
