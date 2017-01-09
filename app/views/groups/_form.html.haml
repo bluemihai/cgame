@@ -10,6 +10,7 @@
         = f.association :instigator, collection: g.users.order(:name)
       - else
         = f.association :instigator, collection: User.order(:name)
+      = f.input :conditions, label: 'Host-determined conditions'
     .large-3.medium-4.small-12.columns
       %h4
         Participants
@@ -25,6 +26,7 @@
         = f.input :wc_curation, as: :text, input_html: { rows: 4 }, label: 'What WC Activities did the group curate?'
     - else
       .large-4.medium-6.small-12.columns      
+
     
 
   %hr

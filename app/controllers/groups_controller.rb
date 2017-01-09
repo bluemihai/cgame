@@ -59,6 +59,7 @@ class GroupsController < ApplicationController
 
     def group_params
       params.require(:group).permit(:round_id, :activity_id, :wild_card,
-        :wc_interpretation, :wc_curation, :instigator_id, participant_ids: [])
+        :wc_interpretation, :wc_curation, :instigator_id, :conditions,
+        participant_ids: [])
     end
 end
