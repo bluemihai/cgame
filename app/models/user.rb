@@ -1,3 +1,5 @@
+require 'digest'
+
 class User < ActiveRecord::Base
   enum role: [:player, :host, :admin]
   after_initialize :set_default_role, :if => :new_record?
@@ -26,8 +28,15 @@ class User < ActiveRecord::Base
     g
   end
 
-  def facebook_avatar_url
-    "http://graph.facebook.com/#{facebook_id}/picture?type=square"
+  def gravatar(size = 24)
+    gravatar_id = Digest::MD5.hexdigest(email.downcase) unless email.blank?
+    "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}&d=monsterid"
+  end
+
+  def facebook_avatar_url(size = 24)
+    gravatar(size)
+    # data = "http://graph.facebook.com/#{uid}/picture?type=square"
+    # data["picture"]["data"]["url"]
   end
 
   def facebook_url

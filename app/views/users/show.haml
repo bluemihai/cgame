@@ -1,4 +1,7 @@
-%h3= link_to @user.name if @user.name
+
+%h3
+  = image_tag @user.gravatar(36)
+  = link_to @user.name if @user.name
 
 %h5= "#{@user.groups.count} Groups"
 - @user.groups.each do |group|
