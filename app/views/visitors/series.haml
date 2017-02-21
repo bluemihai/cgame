@@ -1,80 +1,53 @@
-%h2 C-Game Series (Closed Container)
+%h2 C-Game Series Registration
 
-- if @registered
-  .large-12.medium-12.small-12.columns
-  Thank you and congratulations on registering!
-  %br
-  %span Please list your expected availability in&nbsp;
-  %span.action= link_to 'this Google Sheet', 'https://docs.google.com/spreadsheets/d/1A1TryQbEERs0uPI1KQSvsLEfgtNSkFDJKM64I3e4BJA/edit#gid=1249752017'
-  %hr
+.row
+  .small-3.columns
+    %form{:action => "https://www.paypal.com/cgi-bin/webscr", :method => "post", :target => "_top"}
+      %input{:name => "cmd", :type => "hidden", :value => "_s-xclick"}
+        %input{:name => "hosted_button_id", :type => "hidden", :value => "8ZFYBBTKN8QAJ"}
+          %table
+            %tr
+              %td
+                %input{:name => "on0", :type => "hidden", :value => "Which Week?"} Which Week?
+              %tr
+                %td
+                  %select{:name => "os0"}
+                    %option{:value => "Sundays 5-8pm"} Sundays 5-8pm $240.00 USD
+                    %option{:value => "Tuesdays 7-10pm"} Tuesdays 7-10pm $240.00 USD
+                    %option{:value => "Both"} Both $320.00 USD
+              %tr
+                %td
+                  %input{:name => "on1", :type => "hidden", :value => "Name, email, phone"} Name, email, phone #
+                %tr
+                  %td
+                    %input{:maxlength => "200", :name => "os1", :type => "text"}/
+                  %tr
+                    %td
+                      %input{:name => "on2", :type => "hidden", :value => "When available for coaching?"} When are you available for coaching?
+                    %tr
+                      %td
+                        %input{:maxlength => "200", :name => "os2", :type => "text"}/
+                    %input{:name => "currency_code", :type => "hidden", :value => "USD"}
+                      %input{:alt => "PayPal - The safer, easier way to pay online!", :border => "0", :name => "submit", :src => "https://www.paypalobjects.com/en_US/i/btn/btn_buynow_SM.gif", :type => "image"}
+                        %img{:alt => "", :border => "0", :height => "1", :src => "https://www.paypalobjects.com/en_US/i/scr/pixel.gif", :width => "1"}
 
-.large-3.medium-3.small-12.columns
-  %form{:action => "https://www.paypal.com/cgi-bin/webscr", :method => "post", :target => "_top"}
-    %input{:name => "cmd", :type => "hidden", :value => "_s-xclick"}/
-    %input{:name => "hosted_button_id", :type => "hidden", :value => "6RB36KUFT3EBU"}/
-    %table
-      %tr
-        %td
-          %input{:name => "on0", :type => "hidden", :value => "Days"}>/
-          Days
-      %tr
-        %td
-          %select{:name => "os0"}
-            %option{:value => "Thursdays"} Thursdays
-            %option{:value => "Sundays"} Sundays
-      %tr
-        %td
-          %input{:name => "on1", :type => "hidden", :value => "Name"}>/
-          Name
-      %tr
-        %td
-          %input{:maxlength => "200", :name => "os1", :type => "text"}/
-      %tr
-        %td
-          %input{:name => "on2", :type => "hidden", :value => "Your e-mail and phone #"}>/
-          Your e-mail and phone #
-      %tr
-        %td
-          %input{:maxlength => "200", :name => "os2", :type => "text"}/
-    %input{:alt => "PayPal - The safer, easier way to pay online!", :border => "0", :name => "submit", :src => "https://www.paypalobjects.com/en_US/i/btn/btn_buynow_SM.gif", :type => "image"}/
-    %img{:alt => "", :border => "0", :height => "1", :src => "https://www.paypalobjects.com/en_US/i/scr/pixel.gif", :width => "1"}/
+  .small-9.columns
 
-.large-9.medium-9.small-12.columns
-  .row
-    .large-6.medium-6.small-12.columns
-      %span Sundays 5-8pm&nbsp;
-      %span.action= link_to '(RSVP on FB)', 'https://www.facebook.com/events/1112190452227394/'
-      %br
-      Dec 4/11/18, Jan 8/15/22
-      %br
-    .large-6.medium-6.small-12.columns
-      %span Thursdays 7-10pm&nbsp;
-      %span.action= link_to '(RSVP on FB)', 'https://www.facebook.com/events/1176337432455208/'
-      %br
-      Dec 15/22/29, Jan 5/12/19
+    %h3 Logistics
+    Sundays 5-8pm (Mar-5 to Apr-23)
+    %br
+    Tuesdays 7-10pm (Mar-7 to Apr-25)
 
-  %p
-    What will you experience in C-Games?
-    %ul
-      %li Fun and play, sometimes with an edge
-      %li Chance to practice "Honor Thy Self"
-      %li Co-creation through group intelligence
-      %li Developing new, "T-Group 2.0" practice
-      %li Oodles of self-awareness
-      %li Knowing and loving other people more; group bonding in some very deep ways
-      %li Invitation to be a chief, not a consumer
+    %h3 Free Weekly 1:1 Coaching
+    This container only, we are gifting you 30 minutes of weekly coaching/conversation.  The purpose is to support you in bringing your full, highest self to C-Games, to understand your experience and to create the best possible C-Games experience for everyone.
 
-  %p
-    Logistics
-    %ul
-      %li
-        %span Contact 415.734.0129 or&nbsp;
-        %span.action= mail_to 'cgames.forever@gmail.com', 'cgames.forever@gmail.com'
-        %span &nbsp;with any questions
-      %li First week is open, meaning anyone is welcome who might join the series
-      %li Come if you can make 4+ of the 6 weeks!
-      %li Cost is $80/series, or equal energetic exchange
-      %li Included: optional, but recommended, 30-60 minute post-game debrief each week
-      %li We are looking for 6-12 participants per group
+    %h3 Trial Period
+    You are welcome to try the container out for one or two weeks and get a pro-rated refund if it doesn't work for you.
+
+    %h3 Questions or comments?
+    Contact mail_to 'cgames.forever@gmail.com', 'cgames.forever@gmail.com' or call/text 510.859.7268
+
+    %h3 Intention & Agreements
+    These have varied in the past and will be established in the first meeting.
 
 %hr
