@@ -1,9 +1,11 @@
 class Game < ApplicationRecord
   before_create :randomize_id
+  after_create :generate_container
 
   belongs_to :location
   belongs_to :host, class_name: 'User'
   belongs_to :cohost, class_name: 'User', required: false
+  belongs_to :container, required: false
 
   has_many :menu_items
   has_many :activities, through: :menu_items
@@ -60,5 +62,34 @@ class Game < ApplicationRecord
       begin
         self.id = SecureRandom.random_number(1_000_000)
       end while Game.where(id: self.id).exists?
+    end
+
+    def generate_container
+      return unless container_weeks && container_weeks > 1
+      c = Container.create!(
+        host: host,
+        cohost: cohost,
+        name: name,
+        weeks: container_weeks,
+        starting: starting,
+        location: location,
+        users: users
+      )
+      (2..container_weeks).each do |index|
+        s = starting + (index-1).weeks
+        e = ending + (index-1).weeks
+        c.games.create!(
+          name: "#{name}, Week #{index}",
+          host: host,
+          cohost: cohost,
+          location: location,
+          status: status,
+          starting: s,
+          ending: e,
+          menu_items: menu_items,
+          users: users
+        )
+      end
+      update_attributes(container: c, name: "#{name}, Week 1")
     end
 end

@@ -6,10 +6,12 @@ class User < ActiveRecord::Base
 
   has_many :rsvps
   has_many :games, through: :rsvps
+  has_many :container_commitments
+  has_many :containers, through: :container_commitments
 
   validates :name, presence: true, uniqueness: true
 
-  scope :host_or_admin, -> { where('role > 0') }
+  scope :host_or_admin, -> { where('role > 0').order(:name) }
 
   def groups
     games.map(&:groups).flatten

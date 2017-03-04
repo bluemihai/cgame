@@ -63,6 +63,6 @@ class GamesController < ApplicationController
     def game_params
       params.require(:game).permit(:starting, :ending, :location_id, :host_id,
         :cohost_id, :facebook_event_url, :review, :decoration, :color, :name,
-        :status, activity_ids: [], user_ids: [])
+        :status, :container_id, :container_weeks, activity_ids: [], user_ids: [])
     end
 end
