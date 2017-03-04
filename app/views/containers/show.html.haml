@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @container.name
+%p
+  %b Starting:
+  = @container.starting
+%p
+  %b Weeks:
+  = @container.weeks
+%p
+  %b Location:
+  = @container.location_id
+%p
+  %b Host:
+  = @container.host_id
+%p
+  %b Cohost:
+  = @container.cohost_id
+
+= link_to 'Edit', edit_container_path(@container)
+\|
+= link_to 'Back', containers_path

@@ -34,9 +34,8 @@ class User < ActiveRecord::Base
   end
 
   def facebook_avatar_url(size = 24)
-    gravatar(size)
-    # data = "http://graph.facebook.com/#{uid}/picture?type=square"
-    # data["picture"]["data"]["url"]
+    return "http://publicdomainvectors.org/photos/userMale.png" unless uid
+    "http://graph.facebook.com/v2.8/#{uid}/picture?type=square"
   end
 
   def facebook_url

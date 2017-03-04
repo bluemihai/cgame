@@ -1,7 +1,7 @@
 - if host_or_admin?
   %p.admin-only
     - @game.users.order(:name).each do |user|
-      = render 'users/facebook', user: user
+      = render 'users/gravatar', user: user
     /
     / map{ |user| link_to user.facebook_id, user.fac }.join(', ').html_safe
       
