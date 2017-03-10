@@ -1,20 +1,26 @@
 
 %h3
-  = image_tag @user.gravatar(36)
+  = image_tag @user.gravatar(36), title: "If you see a monster here instead of a picture of your face, please go to gravatar.com and set one up for your email, #{@user.email}"
   = link_to @user.name if @user.name
 
-%h5= "#{@user.groups.count} Groups"
-- @user.groups.each do |group|
-  = group.starting.strftime('%b-%d')
-  = ' — '
-  = group.activity.name
-  = ' with '
-  = group.participants.map(&:first_name).join(', ')
-  %br
-%hr
+%h5= "#{@user.participations.count} Groups in #{pluralize(@user.games.completed.size, 'C-Game')}"
+%table#user-activities-table.table-compact
+  %thead
+    %th.date-th Date
+    %th.hide Date For Sort
+    %th.text-center Activity
+    %th Participants
+  %tbody
+    - @user.participations.reverse.each do |participation|
+      - group = participation.group
+      %tr
+        %td= link_to group.starting.strftime('%b-%d'), group.game
+        %td.hide= group.starting
+        %td.text-center= group.activity.name_with_wc
+        %td= group.participants_except(@user).sort_by(&:first_name).map(&:first_name).join(', ')
 
-- unless @user.games.empty?
-  %h5= pluralize(@user.games.size, 'C-Game')
+- unless @user.games.completed.empty?
+  %h5= pluralize(@user.games.completed.size, 'C-Game')
   %table#past-games.compact
     %thead
       %th.text-center Date
@@ -23,14 +29,18 @@
       %th.text-center RSVPS
       %th.text-center
       %th Actions
-    = render @user.games.order('starting DESC')
+    = render @user.games.completed.order('starting DESC')
 %hr
 
 = form_for(@user) do |f|
-  .large-1.medium-2.small-6.columns= link_to 'Edit', edit_user_path(@user), class: 'button-xs'
-  .large-1.medium-2.small-6.columns= link_to 'Delete', user_path(@user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'button-xs'
-  .large-2.medium-2.small-6.columns= f.select(:role, User.roles.keys.map {|role| [role.titleize,role]})
-  .large-2.medium-2.small-6.columns= f.submit 'Change Role', class: 'button-xs'
+  .large-1.medium-2.small-6.columns
+    = link_to 'Edit', edit_user_path(@user), class: 'button-xs'
+  .large-1.medium-2.small-6.columns
+    = link_to 'Delete', user_path(@user), data: { confirm: "Are you sure?" }, method: :delete, class: 'button-xs'
+  .large-2.medium-2.small-6.columns
+    = f.select(:role, User.roles.keys.map {|role| [role.titleize,role]})
+  .large-2.medium-2.small-6.columns
+    = f.submit 'Change Role', class: 'button-xs'
   .large-6.medium-4.small-12.columns &nbsp;
 
 %hr

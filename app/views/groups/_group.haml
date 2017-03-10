@@ -2,4 +2,5 @@
   .group-name
     %sub.group-size= group.participants.size
     = link_to group.activity.try(:name_with_wc), edit_group_path(group)
-    %sup.delete-group= link_to image_tag('x.png', size: 8), group, method: :delete, data: CONF
+    %sup.delete-group
+      = link_to image_tag('x.png', size: 8), group, method: :delete, data: CONF

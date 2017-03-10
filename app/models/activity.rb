@@ -1,5 +1,6 @@
 class Activity < ApplicationRecord
   has_many :haikus
+  has_many :groups
 
   before_create :randomize_id
 
@@ -11,6 +12,14 @@ class Activity < ApplicationRecord
   scope :basic, -> { where(basic: true) }
   scope :active, -> { where(active: true) }
   scope :wc, -> { where(main: false) }
+
+  def plays
+    if name == 'Wild Card'
+      Group.wild_cards.count
+    else
+      groups.count
+    end
+  end
 
   def tiny
     main ? initials : 'WC'

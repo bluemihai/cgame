@@ -5,6 +5,12 @@ class Group < ApplicationRecord
   has_many :participants, through: :participations, source: :user
   belongs_to :instigator, class_name: 'User', required: false
 
+  scope :wild_cards, -> { where(wild_card: true) }
+
+  def participants_except(excepted_user)
+    participants - [excepted_user]
+  end
+
   def game
     return nil if round.nil?
     round.game

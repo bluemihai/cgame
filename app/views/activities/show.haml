@@ -1,6 +1,6 @@
 .large-6.medium-12.small-12.columns
   %h2
-    = "#{@activity.name} (#{@activity.initials})"
+    = @activity.name
     - if host_or_admin?
       %sup= link_to image_tag('settings.png', size: 12), edit_activity_path(@activity)
     

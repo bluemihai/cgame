@@ -3,12 +3,12 @@
 %table#activities-table.compact
   %thead
     %tr
-      %th
       %th Name
+      %th Haiku
+      %th Plays
       %th.text-center Main?
       %th.text-center Basic?
       %th.text-center Active?
-      %th Haiku
       %th.text-center Added
       - if host_or_admin?
         %th.admin-only Actions
@@ -16,13 +16,13 @@
   %tbody
     - @activities.each do |activity|
       %tr
-        %td= activity.initials
         %td= link_to activity.name, activity
+        %td= link_to simpler_format(activity.haiku), activity
+        %td= activity.plays
         %td.text-center= link_to show_bool(activity.main?), edit_activity_path(activity)
         %td.text-center= link_to show_bool(activity.basic?), edit_activity_path(activity)
         %td.text-center= link_to show_bool(activity.active?), edit_activity_path(activity)
-        %td= link_to simpler_format(activity.haiku), activity
-        %td.text-center= activity.created_at.strftime('%a, %b-%d')
+        %td.text-center= activity.created_at.strftime('%b-%d')
         %td.admin-only
           - if host_or_admin?
             %span.action= link_to image_tag('settings.png', size: 20), edit_activity_path(activity)

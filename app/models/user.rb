@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :games, through: :rsvps
   has_many :container_commitments
   has_many :containers, through: :container_commitments
+  has_many :participations
 
   validates :name, presence: true, uniqueness: true
 
