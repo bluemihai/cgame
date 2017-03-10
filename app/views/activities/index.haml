@@ -6,6 +6,7 @@
       %th
       %th Name
       %th.text-center Main?
+      %th.text-center Basic?
       %th.text-center Active?
       %th Haiku
       %th.text-center Added
@@ -17,8 +18,9 @@
       %tr
         %td= activity.initials
         %td= link_to activity.name, activity
-        %td.text-center= show_bool(activity.main?)
-        %td.text-center= show_bool(activity.active?)
+        %td.text-center= link_to show_bool(activity.main?), edit_activity_path(activity)
+        %td.text-center= link_to show_bool(activity.basic?), edit_activity_path(activity)
+        %td.text-center= link_to show_bool(activity.active?), edit_activity_path(activity)
         %td= link_to simpler_format(activity.haiku), activity
         %td.text-center= activity.created_at.strftime('%a, %b-%d')
         %td.admin-only

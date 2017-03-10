@@ -9,5 +9,13 @@
       .large-6.medium-6.small-12.columns= f.input :starting, minute_step: 30
       .large-3.medium-3.small-12.columns= f.association :location
       .large-3.medium-3.small-12.columns= f.input :weeks, collection: (4..12).to_a
+    .row
+      %h4 Review
+      .large-6.medium-12.small-12.columns
+        %h4
+          = "#{@game.users.size} Attendees "
+          %sup= link_to image_tag('plus.png', size: 12), new_user_path
+        .form-checkboxes.text-columns-3
+          = f.association :users, as: :check_boxes, collection: User.order(:name), label: false
   .form-actions
     = f.button :submit

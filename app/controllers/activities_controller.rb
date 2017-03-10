@@ -11,7 +11,7 @@ class ActivitiesController < ApplicationController
   end
 
   def menu
-    @activities = Activity.main.active.shuffle
+    @activities = Activity.basic.active.shuffle
   end
 
   def show
@@ -65,6 +65,6 @@ class ActivitiesController < ApplicationController
 
     def activity_params
       params.require(:activity).permit(:name, :description, :wild_card_weight,
-        :image_url, :main, :active, :haiku, :initials)
+        :image_url, :main, :active, :haiku, :initials, :basic)
     end
 end

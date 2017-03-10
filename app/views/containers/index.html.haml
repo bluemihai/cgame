@@ -1,4 +1,4 @@
-%h1 Listing containers
+%h1 Listing Containers
 
 %table
   %thead
@@ -16,12 +16,12 @@
   %tbody
     - @containers.each do |container|
       %tr
-        %td= container.name
-        %td= container.starting
+        %td= link_to container.name, container
+        %td= container.starting.strftime('%b-%d %H:%M')
         %td= container.weeks
-        %td= container.location_id
-        %td= container.host_id
-        %td= container.cohost_id
+        %td= container.location.name
+        %td= container.host.name
+        %td= container.cohost.try(:name)
         %td= link_to 'Show', container
         %td= link_to 'Edit', edit_container_path(container)
         %td= link_to 'Destroy', container, :method => :delete, :data => { :confirm => 'Are you sure?' }
