@@ -6,15 +6,21 @@ class Container < ApplicationRecord
   has_many :container_commitments
   has_many :users, through: :container_commitments
 
-  # after_create :create_related_games
-  #
-  # def create_related_games
-  #   puts "Creating #{weeks} games...."
-  #   (1..weeks).each do |week|
-  #     s = starting + (week-1).weeks
-  #     n = "#{name}, Week #{week}"
-  #     games.create(host: host, cohost: cohost, location: location, starting: s, name: n)
-  #   end
-  # end
-  #
+  after_save :update_related_games
+
+  def update_related_games
+    games.each do |game|
+      week = ((game.starting - starting) / 1.week).to_i
+      n = "#{name}, Week #{week}"
+      games.update(
+        host: host,
+        cohost: cohost,
+        location: location,
+        name: n,
+        users: users
+      )
+    end
+
+  end
+
 end
