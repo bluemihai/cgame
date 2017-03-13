@@ -9,7 +9,7 @@ class Container < ApplicationRecord
   after_save :update_related_games
 
   def update_related_games
-    games.each do |game|
+    games.completed.each do |game|
       week = ((game.starting - starting) / 1.week).to_i
       n = "#{name}, Week #{week}"
       games.update(
