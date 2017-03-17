@@ -5,11 +5,14 @@
     .large-5.medium-8.small-12.columns
       = f.association :round, selected: @group.round_id || params[:round_id]
       = f.association :activity, label_method: :name_with_wc, collection: Activity.order(:wild_card_weight, :name), autofocus: true
-      = f.input :wild_card, as: :select, selected: @group.wild_card || false
-      - if g = Game.find_by_id(params[:game_id])
-        = f.association :instigator, collection: g.users.order(:name)
-      - else
-        = f.association :instigator, collection: User.order(:name)
+      = f.association :second_activity, label_method: :name_with_wc, collection: Activity.order(:wild_card_weight, :name)
+      .row
+        .small-6.columns= f.input :wild_card, as: :select, selected: @group.wild_card || false
+        .small-6.columns
+          - if g = Game.find_by_id(params[:game_id])
+            = f.association :instigator, collection: g.users.order(:name)
+          - else
+            = f.association :instigator, collection: User.order(:name)
       = f.input :conditions, label: 'Host-determined conditions'
     .large-3.medium-4.small-12.columns
       %h4
@@ -21,7 +24,7 @@
       - if @group.persisted?
         .form-checkboxes= f.association :participants, collection: @group.game.users.order(:name), as: :check_boxes, label: false
     - if @group.wild_card
-      .large-4.medium-6.small-12.columns
+      .large-4.medium-12.small-12.columns
         = f.input :wc_interpretation, as: :text, input_html: { rows: 4 }, label: 'How did the group interpret this WC?'
         = f.input :wc_curation, as: :text, input_html: { rows: 4 }, label: 'What WC Activities did the group curate?'
     - else

@@ -2,8 +2,8 @@ class Game < ApplicationRecord
   before_create :randomize_id
   after_create :generate_container
 
-  belongs_to :location
-  belongs_to :host, class_name: 'User'
+  belongs_to :location, required: false
+  belongs_to :host, class_name: 'User', required: false
   belongs_to :cohost, class_name: 'User', required: false
   belongs_to :container, required: false
 

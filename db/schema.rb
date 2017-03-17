@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170310141716) do
+ActiveRecord::Schema.define(version: 20170317041658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,10 +72,11 @@ ActiveRecord::Schema.define(version: 20170310141716) do
     t.boolean  "wild_card"
     t.string   "wc_interpretation"
     t.string   "wc_curation"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.integer  "instigator_id"
     t.string   "conditions"
+    t.integer  "activity_secondary_id"
   end
 
   create_table "haikus", force: :cascade do |t|
