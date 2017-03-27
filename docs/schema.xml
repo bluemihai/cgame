@@ -136,7 +136,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1061" y="386" name="activities">
+<table x="1044" y="422" name="activities">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -250,7 +250,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1057" y="658" name="groups">
+<table x="983" y="681" name="groups">
 <row name="round_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="rounds" row="id" />
@@ -258,6 +258,14 @@
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
+<row name="activity_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="activities" row="id" />
+</row>
+<row name="activity_secondary_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="activities" row="id" />
+</row>
 <row name="wild_card" null="1" autoincrement="0">
 <datatype>bit</datatype>
 <default>NULL</default></row>
@@ -355,22 +363,6 @@
 <row name="user_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="users" row="id" />
-</row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-<table x="1281" y="544" name="group_activities">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="activity_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="activities" row="id" />
-</row>
-<row name="group_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="groups" row="id" />
 </row>
 <key type="PRIMARY" name="">
 <part>id</part>
