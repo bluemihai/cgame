@@ -13,7 +13,7 @@
       At this
       = link_to 'date', '#', title: default_time(@game.starting)
       &nbsp;and&nbsp;
-      = link_to 'location', @game.location, title: @game.location.name
+      = link_to 'location', @game.location, title: @game.location_name
       %br
       = link_to 'RSVP here', @game.facebook_event_url
     .large-8.medium-8.small-12.columns
@@ -24,7 +24,7 @@
       = link_to @game.facebook_event_url, @game.facebook_event_url
 - else
   %p
-    %h4= "Remembering #{@game.starting.strftime('%b-%d')} at #{@game.location.name}"
+    %h4= "Remembering #{@game.starting.strftime('%b-%d')} at #{@game.location_name}"
     = simpler_format(@game.review)
 
 - activities = @game.activities.order(:name)
