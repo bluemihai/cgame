@@ -17,6 +17,11 @@ class Game < ApplicationRecord
 
   enum status: [:idea, :possible, :likely, :confirmed, :completed]
 
+  def location_full
+    return 'No Location' if location.blank?
+    location.full
+  end
+
   def location_name
     return 'No Location' if location.blank?
     location.name

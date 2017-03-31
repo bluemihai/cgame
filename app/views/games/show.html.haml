@@ -19,7 +19,7 @@
     .large-8.medium-8.small-12.columns
       = default_time(@game.starting)
       %br
-      = link_to @game.location.full, @game.location
+      = link_to @game.location_full, @game.location
       %br
       = link_to @game.facebook_event_url, @game.facebook_event_url
 - else
