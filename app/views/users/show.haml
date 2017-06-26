@@ -12,12 +12,12 @@
     %th Participants
   %tbody
     - @user.participations.reverse.each do |participation|
-      - group = participation.group
-      %tr
-        %td= link_to group.starting.strftime('%b-%d'), group.game
-        %td.hide= group.starting
-        %td.text-center= group.activity.name_with_wc
-        %td= group.participants_except(@user).sort_by(&:first_name).map(&:first_name).join(', ')
+      - if group = participation.group
+        %tr
+          %td= link_to group.starting.strftime('%b-%d'), group.game
+          %td.hide= group.starting
+          %td.text-center= group.activity.name_with_wc
+          %td= group.participants_except(@user).sort_by(&:first_name).map(&:first_name).join(', ')
 
 - unless @user.games.completed.empty?
   %h5= pluralize(@user.games.completed.size, 'C-Game')

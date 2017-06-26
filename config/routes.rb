@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   get '/circlemeday' => 'visitors#circlemeday'
   get '/jordan' => 'visitors#jordan'
   get '/series' => 'visitors#series'
+  get '/cobalt' => 'visitors#cobalt'
+  get '/defaultcopy' => 'visitors#defaultcopy'
   get '/auth/:provider/callback' => 'sessions#create'
   get '/signin' => 'sessions#new', :as => :signin
   get '/signout' => 'sessions#destroy', :as => :signout

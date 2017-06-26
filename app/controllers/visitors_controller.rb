@@ -17,6 +17,14 @@ class VisitorsController < ApplicationController
     @registered = params.has_key? :registered
   end
 
+  def cobalt
+    
+  end
+
+  def defaultcopy
+    
+  end
+
   def wildcard
     rand_wc = Activity.wild_card.sample
     redirect_to activity_path(rand_wc)
