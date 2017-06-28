@@ -27,6 +27,8 @@ gem 'pg'
 gem 'simple_form'
 gem 'thin'
 gem 'jquery-datatables-rails', '~> 3.3.0'
+gem 'stripe', git: 'https://github.com/stripe/stripe-ruby'
+gem 'payola-payments'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'

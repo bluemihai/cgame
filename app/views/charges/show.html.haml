@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Amount:
+  = @charge.amount
+%p
+  %b Container:
+  = @charge.container_id
+%p
+  %b User:
+  = @charge.user_id
+%p
+  %b Comment:
+  = @charge.comment
+
+= link_to 'Edit', edit_charge_path(@charge)
+\|
+= link_to 'Back', charges_path

@@ -1,0 +1,11 @@
+= simple_form_for(@charge) do |f|
+  = f.error_notification
+
+  .form-inputs
+    .large-4.medium-4.small-12.columns= f.input :amount, input_html: { value: 400 }
+    .large-4.medium-4.small-12.columns= f.association :container, collection: @containers, selected: @containers.last
+    .large-4.medium-4.small-12.columns= f.association :user, collection: @users, selected: current_user.id
+    = f.input :comment
+
+  .form-actions
+    = f.button :submit, 'Pay With Card'
