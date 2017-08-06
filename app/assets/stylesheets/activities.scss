@@ -9,11 +9,14 @@
   display: inline-block;
 }
 
-.chosen-wc-name {
-  background-color: yellow;
-  width: 320px;
-  margin: auto;
-  text-align: center;
+.chosen-wc-name-container {
+  width: 100%;
+  .chosen-wc-name {
+    background-color: yellow;
+    width: 196px;
+    margin: auto;
+    text-align: center;
+  }
 }
 
 #menu {
