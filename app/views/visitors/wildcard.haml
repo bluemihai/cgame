@@ -1,0 +1,15 @@
+%h2.text-center Picking Random Wild Card...
+
+%h3.admin-only.row
+  .chosen-wc-name= @rand_wc.name
+
+%hr
+
+.text-center
+  - @wildcards.in_groups_of(5).each do |group|
+    - group.each do |wc|
+      - if wc == @rand_wc
+        .chosen-wc= image_tag 'wild-card.png', width: 64, height: 64
+      - else
+        = image_tag 'wild-card.png', width: 64, height: 64
+    %br

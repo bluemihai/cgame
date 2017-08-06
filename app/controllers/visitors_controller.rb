@@ -26,8 +26,9 @@ class VisitorsController < ApplicationController
   end
 
   def wildcard
-    rand_wc = Activity.wild_card.sample
-    redirect_to activity_path(rand_wc)
+    @wildcards = Activity.wild_card.shuffle
+    @rand_wc = Activity.wild_card.sample
+    # redirect_to activity_path(rand_wc)
   end
 
   def values
