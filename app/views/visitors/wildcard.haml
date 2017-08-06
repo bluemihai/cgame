@@ -1,9 +1,4 @@
-%h2.text-center Picking Random Wild Card...
-
-.chosen-wc-name-container
-  .chosen-wc-name= @rand_wc.name
-
-%hr
+%h2.text-center Your Wild Card is
 
 .text-center
   - @wildcards.in_groups_of(6).each do |group|
@@ -13,3 +8,9 @@
       - else
         = image_tag 'wild-card.png', width: 32, height: 32
     %br
+
+%br
+.chosen-wc-name-container
+  .chosen-wc-name= @rand_wc.name
+
+%hr
