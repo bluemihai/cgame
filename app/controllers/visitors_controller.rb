@@ -1,5 +1,5 @@
 class VisitorsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: :wildcard
   before_action :admin_only!, only: :wildcard
 
   def circlemeday
@@ -35,5 +35,8 @@ class VisitorsController < ApplicationController
   end
 
   def values
+  end
+
+  def about
   end
 end

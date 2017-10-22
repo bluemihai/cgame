@@ -13,6 +13,19 @@ class Activity < ApplicationRecord
   scope :active, -> { where(active: true) }
   scope :wc, -> { where(main: false) }
 
+  def color
+    case mildness
+    when 1
+      '#B5BD83'
+    when 3
+      '#F8E488'
+    when 5
+      '#ED9E87'
+    else
+      '#E1F0FE'
+    end
+  end
+
   def plays
     if name == 'Wild Card'
       Group.wild_cards.count

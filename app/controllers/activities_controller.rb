@@ -65,6 +65,6 @@ class ActivitiesController < ApplicationController
 
     def activity_params
       params.require(:activity).permit(:name, :description, :wild_card_weight,
-        :image_url, :main, :active, :haiku, :initials, :basic)
+        :image_url, :main, :active, :haiku, :initials, :basic, :mildness)
     end
 end

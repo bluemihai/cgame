@@ -13,11 +13,14 @@ Rails.application.routes.draw do
       resources :groups
     end
   end
-  resources :activities
+  resources :activities do
+    collection { get :menu }
+  end
   resources :users
-  root to: 'activities#menu'
+  root to: 'visitors#welcome'
   get '/wild_*^@_cards' => 'activities#wildcards', as: :wildcards
   get '/menu' => 'activities#menu', as: :menu
+  get '/about' => 'visitors#about', as: :about
   get '/w_c' => 'visitors#wildcard', as: :wildcard
   get '/festival' => 'visitors#festival'
   get '/welcome' => 'visitors#welcome'

@@ -56,6 +56,6 @@ class ContainersController < ApplicationController
 
     def container_params
       params.require(:container).permit(:name, :starting, :weeks, :location_id,
-        :host_id, :cohost_id, user_ids: [])
+        :host_id, :cohost_id, :status, :weekday, :agreements, user_ids: [])
     end
 end
