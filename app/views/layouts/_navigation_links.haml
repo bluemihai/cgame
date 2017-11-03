@@ -1,5 +1,6 @@
 %li= link_to 'Games Menu & Core Values', menu_path
 %li= link_to 'About Us', about_path
+%li= link_to 'Calendar', 'http://facebook.com/connectionjunkies/events'
 - if host_or_admin?
   %li= link_to 'Activities', activities_path
   %li= link_to image_tag('plus.png', size: 12), new_activity_path

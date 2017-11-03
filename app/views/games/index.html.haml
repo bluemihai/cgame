@@ -1,28 +1,23 @@
-%h2 Upcoming C-Games
+/ %h2 Upcoming Connection Games
+/
+/ - if host_or_admin?
+/   %table#upcoming-games.compact
+/     %thead
+/       %th Date
+/       %th City
+/       %th Name
+/       %th Status
+/       %th.text-center Hosting
+/       %th.text-center RSVPS
+/       %th.text-center
+/       %th Actions
+/     = render @games
+/ - else
+%p
+  For upcoming events, please check our&nbsp;
+  = link_to 'Calendar', 'http://facebook.com/connectionjunkies/events'
 
-- if host_or_admin?
-  %table#upcoming-games.compact
-    %thead
-      %th Date
-      %th City
-      %th Name
-      %th Status
-      %th.text-center Hosting
-      %th.text-center RSVPS
-      %th.text-center
-      %th Actions
-    = render @games
-- else
-  %p Thank you for your interest!
-
-  %p
-    C-Games are currently private, invite-only events.
-    %br
-    Please request an invite from a C-Game partner:
-    %br
-    = User.admin.map {|host| mail_to(host.email, host.name) }.join(', ').html_safe
-
-%h2 Past C-Games
+%h2 Past Connection Games
 %table#past-games.compact
   %thead
     %th.text-center Date

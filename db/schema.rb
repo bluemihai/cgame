@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171022153832) do
+ActiveRecord::Schema.define(version: 20171103145146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20171022153832) do
     t.integer  "status"
     t.integer  "container_id"
     t.integer  "container_weeks"
+    t.text     "blurb"
   end
 
   create_table "groups", force: :cascade do |t|
